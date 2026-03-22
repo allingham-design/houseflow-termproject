@@ -6,6 +6,34 @@ User Story #1: As a roommate, I want to view a shared dashboard so that I can se
 User Story #2: As a roommate, I want to mark chores as completed so that progress is visible.
 User Story #3: As an admin, I want to manage users and chore assignments so that the system remains organized and controlled.
 
+Breaking Down User Stories and Burndown Chart
+
+    User Story #1: As a roommate, I want to view a shared dashboard so that I can see all assigned chores, deadlines, and completion statuses in one place.
+
+| Task                                                           | Story # | Duration | Priority | Complexity | Lead Person |
+| -------------------------------------------------------------- | ------- | -------- | -------- | ---------- | ----------- |
+| Build navigation bar (logo, dashboard, manage chores, profile) | 1       | 1 hr     | 8        | Low        | Crystal     |
+| Create summary cards (Total, Completed, Pending, My Chores)    | 1       | 2 hrs    | 10       | Medium     | Kenlee      |
+| Design and display chore cards (title, user, due date, status) | 1       | 2 hrs    | 10       | Medium     | Stella      |
+| Add filter tabs (All, Pending, Completed, Overdue)             | 1       | 2 hrs    | 9        | Medium     | JoAnn       |
+| Build right panel (Roommate Progress + Rotation Schedule)      | 1       | 2 hrs    | 8        | Medium     | Ava         |
+
+    User Story #2: As a roommate, I want to mark chores as completed so that progress is visible.
+| Task                                                   | Story # | Duration | Priority | Complexity | Lead Person |
+| ------------------------------------------------------ | ------- | -------- | -------- | ---------- | ----------- |
+| Create “Add Chore” form (title, due date, description) | 2       | 2 hrs    | 10       | Medium     | Stella      |
+| Add roommate assignment dropdown                       | 2       | 1 hr     | 9        | Low        | JoAnn       |
+| Display assigned chore on dashboard                    | 2       | 2 hrs    | 10       | Medium     | Crystal     |
+
+
+    User Story #3: As an admin, I want to manage users and chore assignments so that the system remains organized and controlled.
+| Task                                            | Story # | Duration | Priority | Complexity | Lead Person |
+| ----------------------------------------------- | ------- | -------- | -------- | ---------- | ----------- |
+| Add “Mark Complete” button to chore card        | 3       | 1 hr     | 10       | Low        | Ava         |
+| Update chore status label (Pending → Completed) | 3       | 1 hr     | 10       | Low        | Crystal     |
+| Update summary cards after completion           | 3       | 2 hrs    | 9        | Medium     | Kenlee      |
+
+
 Sreenshots of our Burndown Chart for 2 different sprint days
 
 
@@ -28,7 +56,7 @@ a. What did you do yesterday?
     Joann: Met with Kenlee to plan out our thoughts regarding how to begin the JustInMind prototype.
 b. What are you planning to do today?
     Ava: Work with Crystal to add our First Sprint tasks to a table with their respective user story number, duration, priority, complexity, and lead person.
-    Crystal: Finish the development of 2 user stories and assist Ava in turning these into tasks.
+    Crystal: Finish the development of 3 user stories and assist Ava in turning these into tasks.
     Stella: Conduct and lead the daily stand-up scrum meeting, check that the team is on track to meet our deadlines, and help Ava determine the duration, priority, and complexity of our tasks. 
     Kenlee: Analyze the various options for the main, overall design of our site prototype. 
     Joann: Help Kenlee determine details such as color, layout, and organization for the prototype.
