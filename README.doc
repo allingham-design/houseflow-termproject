@@ -5,7 +5,7 @@ User Stories
 
 User Story #1: As a roommate, I want to view a shared dashboard so that I can see all assigned chores, deadlines, and completion statuses in one place.
 User Story #2: As a roommate, I want to mark chores as completed so that progress is visible.
-User Story #3: As a roommate, I want to manage shared expenses so that rent payments remain organized and controlled.
+User Story #3: As an admin, I want to manage shared expenses so that rent payments remain organized and controlled.
 
 Breaking Down User Stories and Burndown Chart
 
@@ -27,7 +27,7 @@ Breaking Down User Stories and Burndown Chart
 | Display assigned chore on dashboard                    | 2       | 2 hrs    | 10       | Medium     | Crystal     |
 
 
-    User Story #3: As a roommate, I want to manage shared expenses so that rent payments remain organized and controlled.
+    User Story #3: As an admin, I want to manage shared expenses so that rent payments remain organized and controlled.
 | Task                                            | Story # | Duration | Priority | Complexity | Lead Person |
 | ----------------------------------------------- | ------- | -------- | -------- | ---------- | ----------- |
 | Add rent configuration to expenses page         | 3       | 1 hr     | 10       | Low        | Ava         |
