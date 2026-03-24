@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expenses - HouseFlow</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="dashboard.html">
+          HouseFlow
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="dashboard.html">Dashboard</a>
+          <a class="navbar-item is-active" href="expenses.html">Expenses</a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <button class="button btn-outline is-small">Log Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="section" style="padding-top: 5rem;">
+    <div class="container">
+
+      <div class="mb-3">
+        <h1 class="title is-3">Rent & Expenses</h1>
+        <p class="text-muted">Manage monthly rent splits and track payments.</p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="columns mb-3">
+        <div class="column is-4">
+          <div class="stat-card">
+            <div class="stat-number">--</div>
+            <div class="stat-label">Current Month</div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="stat-card">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">Collected</div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="stat-card warning">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">Outstanding</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+
+        <!-- Left: Rent Config + Payment Status -->
+        <div class="column is-7">
+
+          <!-- Rent Configuration -->
+          <div class="card mb-3">
+            <div class="card-content">
+              <h3 class="section-title" style="font-size: 1.1rem; margin-bottom: 1rem;">Rent Configuration</h3>
+
+              <div class="field">
+                <label class="label" for="rent-total">Total Monthly Rent</label>
+                <div class="control">
+                  <input class="input" type="number" id="rent-total" placeholder="3000" min="0" step="50">
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: flex-end; margin-top: 0.75rem;">
+                <button class="button btn-primary is-small">Save Changes</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Status -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="section-title" style="font-size: 1.1rem; margin-bottom: 1rem;">Payment Status</h3>
+              <div class="has-text-centered text-muted" style="padding: 2rem;">
+                <p>No payment data to display.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Placeholder -->
+        <div class="column is-5">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="section-title" style="font-size: 1.1rem; margin-bottom: 1rem;">Payment History</h3>
+              <p class="text-muted" style="font-size: 0.85rem;">No payment history yet.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container has-text-centered">
+      <p>HouseFlow &copy; 2026 &mdash; IS424 Group 6 Project</p>
+    </div>
+  </footer>
+
+</body>
+</html>
