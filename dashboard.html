@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - HouseFlow</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="dashboard.html">
+          HouseFlow
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item is-active" href="dashboard.html">Dashboard</a>
+          <a class="navbar-item" href="expenses.html">Expenses</a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <button class="button btn-outline is-small">Log Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="section" style="padding-top: 5rem;">
+    <div class="container">
+
+      <!-- Welcome Banner -->
+      <div class="mb-3">
+        <h1 class="title is-3">Good morning</h1>
+        <p class="text-muted">Here's what's happening in your household today.</p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="columns is-multiline mb-3">
+        <div class="column is-3-desktop is-6-tablet">
+          <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Total Chores</div>
+          </div>
+        </div>
+        <div class="column is-3-desktop is-6-tablet">
+          <div class="stat-card success">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Completed</div>
+          </div>
+        </div>
+        <div class="column is-3-desktop is-6-tablet">
+          <div class="stat-card warning">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Pending</div>
+          </div>
+        </div>
+        <div class="column is-3-desktop is-6-tablet">
+          <div class="stat-card accent">
+            <div class="stat-number">0</div>
+            <div class="stat-label">My Chores</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chore List Section -->
+      <div class="columns">
+        <div class="column is-8">
+          <div class="section-header">
+            <h2 class="section-title">All Chores</h2>
+            <div>
+              <button class="button btn-outline is-small">All</button>
+              <button class="button is-small">Pending</button>
+              <button class="button is-small">Completed</button>
+              <button class="button is-small">Overdue</button>
+            </div>
+          </div>
+
+          <div class="has-text-centered text-muted" style="padding: 3rem;">
+            <p>No chores to display.</p>
+          </div>
+        </div>
+
+        <div class="column is-4">
+          <!-- Placeholder sidebar -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container has-text-centered">
+      <p>HouseFlow &copy; 2026 &mdash; IS424 Group 6 Project</p>
+    </div>
+  </footer>
+
+</body>
+</html>
