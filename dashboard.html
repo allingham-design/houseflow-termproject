@@ -38,7 +38,7 @@
 
       <!-- Welcome Banner -->
       <div class="mb-3">
-        <h1 class="title is-3">Good morning</h1>
+        <h1 class="title is-3">Good morning, Danny</h1>
         <p class="text-muted">Here's what's happening in your household today.</p>
       </div>
 
@@ -83,13 +83,133 @@
             </div>
           </div>
 
-          <div class="has-text-centered text-muted" style="padding: 3rem;">
-            <p>No chores to display.</p>
+          <!-- Sample Chore Card -->
+          <div class="chore-card mb-2">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <div class="chore-title">Wash Dishes</div>
+                <div class="chore-meta">
+                  <span class="avatar danny" style="width:24px;height:24px;font-size:0.65rem;">DN</span>
+                  <span>Danny Nguyen</span>
+                </div>
+                <div class="chore-meta mt-1">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span>Due: Mar 25</span>
+                  <span class="tag-status pending" style="margin-left: 0.5rem;">pending</span>
+                </div>
+                <p class="text-muted mt-1" style="font-size: 0.85rem;">Chore description goes here.</p>
+              </div>
+              <span class="tag is-light" style="font-size: 0.7rem; text-transform: capitalize;">Daily</span>
+            </div>
+            <div class="chore-actions">
+              <button class="button btn-success is-small">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px"><polyline points="20 6 9 17 4 12"/></svg>
+                Mark Complete
+              </button>
+            </div>
           </div>
         </div>
 
+        <!-- Right: Sidebar -->
         <div class="column is-4">
-          <!-- Placeholder sidebar -->
+
+          <!-- Roommate Progress -->
+          <div class="card mb-3">
+            <div class="card-content">
+              <h3 class="section-title mb-2" style="font-size: 1.1rem;">Roommate Progress</h3>
+
+              <div style="margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="avatar danny" style="width:24px;height:24px;font-size:0.65rem;">DN</span>
+                    <span style="font-weight: 600; font-size: 0.9rem;">Danny Nguyen</span>
+                  </div>
+                  <span style="font-weight: 700; color: var(--primary); font-size: 0.9rem;">3</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="avatar alex" style="width:24px;height:24px;font-size:0.65rem;">BV</span>
+                    <span style="font-weight: 600; font-size: 0.9rem;">Brittney Vo</span>
+                  </div>
+                  <span style="font-weight: 700; color: var(--primary); font-size: 0.9rem;">3</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="avatar jordan" style="width:24px;height:24px;font-size:0.65rem;">RH</span>
+                    <span style="font-weight: 600; font-size: 0.9rem;">Richie Huynh</span>
+                  </div>
+                  <span style="font-weight: 700; color: var(--primary); font-size: 0.9rem;">4</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Rotation Schedule -->
+          <div class="card">
+            <div class="card-content">
+              <h3 class="section-title mb-2" style="font-size: 1.1rem;">Rotation Schedule</h3>
+              <p class="text-muted mb-2" style="font-size: 0.85rem;">Upcoming chore rotation</p>
+
+              <div class="rotation-item">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 0.9rem;">Wash Dishes</div>
+                  <div style="display: flex; gap: 0.35rem; margin-top: 0.35rem; align-items: center;">
+                    <span class="avatar danny" style="width:24px;height:24px;font-size:0.6rem;">DN</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span class="avatar alex" style="width:24px;height:24px;font-size:0.6rem;opacity:0.4;">BV</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span class="avatar jordan" style="width:24px;height:24px;font-size:0.6rem;opacity:0.4;">RH</span>
+                  </div>
+                </div>
+                <span class="tag is-light" style="font-size: 0.7rem; text-transform: capitalize;">Daily</span>
+              </div>
+
+              <div class="rotation-item">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 0.9rem;">Vacuum Living Room</div>
+                  <div style="display: flex; gap: 0.35rem; margin-top: 0.35rem; align-items: center;">
+                    <span class="avatar alex" style="width:24px;height:24px;font-size:0.6rem;">BV</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span class="avatar jordan" style="width:24px;height:24px;font-size:0.6rem;opacity:0.4;">RH</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span class="avatar danny" style="width:24px;height:24px;font-size:0.6rem;opacity:0.4;">DN</span>
+                  </div>
+                </div>
+                <span class="tag is-light" style="font-size: 0.7rem; text-transform: capitalize;">Weekly</span>
+              </div>
+
+              <div class="rotation-item">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 0.9rem;">Take Out Trash</div>
+                  <div style="display: flex; gap: 0.35rem; margin-top: 0.35rem; align-items: center;">
+                    <span class="avatar jordan" style="width:24px;height:24px;font-size:0.6rem;">RH</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span class="avatar danny" style="width:24px;height:24px;font-size:0.6rem;opacity:0.4;">DN</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span class="avatar alex" style="width:24px;height:24px;font-size:0.6rem;opacity:0.4;">BV</span>
+                  </div>
+                </div>
+                <span class="tag is-light" style="font-size: 0.7rem; text-transform: capitalize;">Daily</span>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
 
