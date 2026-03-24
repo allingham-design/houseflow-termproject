@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .card:hover {
-  border-color: var(--primary-light);
+  border-color: var(--border);
 }
 
 .card-content {
@@ -196,6 +196,10 @@ h1, h2, h3, h4, h5, h6,
   transition: border-color var(--transition);
 }
 
+.input:hover, .select select:hover, .textarea:hover {
+  border-color: var(--border);
+}
+
 .input:focus, .select select:focus, .textarea:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.15);
@@ -217,7 +221,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .chore-card:hover {
-  border-color: var(--primary-light);
+  border-color: var(--border);
 }
 
 .chore-card .chore-title {
