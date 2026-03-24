@@ -207,6 +207,115 @@ h1, h2, h3, h4, h5, h6,
   font-size: 0.875rem;
 }
 
+/* ---------- Chore Cards ---------- */
+.chore-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  transition: border-color var(--transition);
+}
+
+.chore-card:hover {
+  border-color: var(--primary-light);
+}
+
+.chore-card .chore-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.chore-card .chore-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.25rem;
+}
+
+.chore-card .chore-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* ---------- Status Tags ---------- */
+.tag-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.tag-status.pending {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.tag-status.completed {
+  background-color: #D1FAE5;
+  color: #065F46;
+}
+
+.tag-status.overdue {
+  background-color: #FEE2E2;
+  color: #991B1B;
+}
+
+/* ---------- Avatar ---------- */
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--on-primary);
+  flex-shrink: 0;
+}
+
+.avatar.danny { background-color: var(--primary); }
+.avatar.alex { background-color: var(--accent); }
+.avatar.jordan { background-color: #7C3AED; }
+
+/* ---------- Progress Bar ---------- */
+.progress-bar {
+  height: 8px;
+  background-color: var(--muted);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar .progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background-color: var(--primary);
+  transition: width 500ms ease;
+}
+
+/* ---------- Rotation Schedule ---------- */
+.rotation-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.rotation-item:last-child {
+  border-bottom: none;
+}
+
 /* ---------- Footer ---------- */
 .footer {
   background-color: var(--card);
