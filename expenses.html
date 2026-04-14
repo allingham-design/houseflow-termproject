@@ -38,27 +38,27 @@
     <div class="container">
 
       <div class="mb-3">
-        <h1 class="title is-3">Rent & Expenses <span style="display: inline-block; background-color: var(--primary); color: var(--on-primary); font-size: 0.65rem; font-weight: 600; padding: 0.2em 0.6em; border-radius: 4px; vertical-align: middle; margin-left: 0.4rem;">ADMIN ONLY</span></h1>
-        <p class="text-muted">Manage monthly rent splits and track payments. Only admins can charge rent.</p>
+        <h1 class="title is-3">Rent & Expenses</h1>
+        <p class="text-muted">Manage monthly rent splits and track payments.</p>
       </div>
 
       <!-- Stats Row -->
       <div class="columns mb-3">
         <div class="column is-4">
           <div class="stat-card">
-            <div class="stat-number">--</div>
+            <div class="stat-number">Apr 2026</div>
             <div class="stat-label">Current Month</div>
           </div>
         </div>
         <div class="column is-4">
           <div class="stat-card">
-            <div class="stat-number">$0</div>
+            <div class="stat-number">$600</div>
             <div class="stat-label">Collected</div>
           </div>
         </div>
         <div class="column is-4">
           <div class="stat-card warning">
-            <div class="stat-number">$0</div>
+            <div class="stat-number">$600</div>
             <div class="stat-label">Outstanding</div>
           </div>
         </div>
@@ -77,11 +77,36 @@
               <div class="field">
                 <label class="label" for="rent-total">Total Monthly Rent</label>
                 <div class="control">
-                  <input class="input" type="number" id="rent-total" placeholder="" min="0" step="50">
+                  <input class="input" type="number" id="rent-total" value="1800" min="0" step="50">
                 </div>
               </div>
 
-              <div style="display: flex; justify-content: flex-end; margin-top: 0.75rem;">
+              <label class="label">Roommate Splits</label>
+
+              <!-- Brittney split -->
+              <div class="field has-addons mb-1" style="align-items: center;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; min-width: 140px;">
+                  <span class="avatar alex" style="width:24px;height:24px;font-size:0.65rem;">BV</span>
+                  <span style="font-weight: 500; font-size: 0.9rem;">Brittney Vo</span>
+                </div>
+                <div class="control" style="margin-left: auto;">
+                  <input class="input is-small" type="number" value="600" min="0" step="50" style="width: 120px; text-align: right;">
+                </div>
+              </div>
+
+              <!-- Richie split -->
+              <div class="field has-addons mb-1" style="align-items: center;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; min-width: 140px;">
+                  <span class="avatar jordan" style="width:24px;height:24px;font-size:0.65rem;">RH</span>
+                  <span style="font-weight: 500; font-size: 0.9rem;">Richie Huynh</span>
+                </div>
+                <div class="control" style="margin-left: auto;">
+                  <input class="input is-small" type="number" value="600" min="0" step="50" style="width: 120px; text-align: right;">
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem;">
+                <span class="text-muted" style="font-size: 0.85rem;">Your share: $600</span>
                 <button class="button btn-primary is-small">Save Changes</button>
               </div>
             </div>
@@ -91,15 +116,48 @@
           <div class="card">
             <div class="card-content">
               <h3 class="section-title" style="font-size: 1.1rem; margin-bottom: 1rem;">Payment Status</h3>
-              <div class="has-text-centered text-muted" style="padding: 2rem;">
-                <p>No payment data to display.</p>
+
+              <!-- Brittney - Paid -->
+              <div class="chore-card mb-2" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="avatar alex">BV</span>
+                  <div>
+                    <div style="font-weight: 600;">Brittney Vo</div>
+                    <div class="text-muted" style="font-size: 0.85rem;">$600</div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div style="text-align: right;">
+                    <span class="tag-status completed">PAID</span>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem;">Apr 3</div>
+                  </div>
+                  <button class="button is-small" title="Mark unpaid">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                  </button>
+                </div>
               </div>
+
+              <!-- Richie - Unpaid -->
+              <div class="chore-card mb-2" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="avatar jordan">RH</span>
+                  <div>
+                    <div style="font-weight: 600;">Richie Huynh</div>
+                    <div class="text-muted" style="font-size: 0.85rem;">$600</div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <span class="tag-status pending">UNPAID</span>
+                  <button class="button btn-success is-small">Confirm Paid</button>
+                </div>
+              </div>
+
             </div>
           </div>
 
         </div>
 
-        <!-- Right: Placeholder -->
+        <!-- Right: Placeholder for Venmo + History -->
         <div class="column is-5">
           <div class="card">
             <div class="card-content">
