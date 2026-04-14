@@ -108,14 +108,174 @@
           </div>
         </div>
 
-        <!-- Right: Placeholder for chore table -->
+        <!-- Right: Chore Table -->
         <div class="column is-7">
           <div class="section-header">
             <h2 class="section-title">All Chores</h2>
+            <button class="button btn-danger is-small">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              Reset Data
+            </button>
           </div>
 
-          <div class="has-text-centered text-muted" style="padding: 3rem;">
-            <p>No chores yet. Add one using the form.</p>
+          <div class="table-container">
+            <table class="table is-fullwidth is-hoverable">
+              <thead>
+                <tr>
+                  <th>Chore</th>
+                  <th>Assigned</th>
+                  <th>Due</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Wash Dishes</div>
+                    <div class="text-muted" style="font-size: 0.8rem;">daily</div>
+                  </td>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                      <span class="avatar danny" style="width:22px;height:22px;font-size:0.6rem;">DN</span>
+                      <span style="font-size: 0.85rem;">Danny Nguyen</span>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.85rem;">Mar 23</td>
+                  <td><span class="tag-status pending">pending</span></td>
+                  <td>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <button class="button is-small btn-outline" title="Edit">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                      </button>
+                      <button class="button is-small btn-danger" title="Delete">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Vacuum Living Room</div>
+                    <div class="text-muted" style="font-size: 0.8rem;">weekly</div>
+                  </td>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                      <span class="avatar alex" style="width:22px;height:22px;font-size:0.6rem;">BV</span>
+                      <span style="font-size: 0.85rem;">Brittney Vo</span>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.85rem;">Mar 24</td>
+                  <td><span class="tag-status pending">pending</span></td>
+                  <td>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <button class="button is-small btn-outline" title="Edit">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                      </button>
+                      <button class="button is-small btn-danger" title="Delete">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Take Out Trash</div>
+                    <div class="text-muted" style="font-size: 0.8rem;">daily</div>
+                  </td>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                      <span class="avatar jordan" style="width:22px;height:22px;font-size:0.6rem;">RH</span>
+                      <span style="font-size: 0.85rem;">Richie Huynh</span>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.85rem;">Mar 21</td>
+                  <td><span class="tag-status completed">completed</span></td>
+                  <td>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <button class="button is-small btn-outline" title="Edit">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                      </button>
+                      <button class="button is-small btn-danger" title="Delete">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Clean Bathroom</div>
+                    <div class="text-muted" style="font-size: 0.8rem;">weekly</div>
+                  </td>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                      <span class="avatar danny" style="width:22px;height:22px;font-size:0.6rem;">DN</span>
+                      <span style="font-size: 0.85rem;">Danny Nguyen</span>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.85rem;">Mar 19</td>
+                  <td><span class="tag-status overdue">overdue</span></td>
+                  <td>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <button class="button is-small btn-outline" title="Edit">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                      </button>
+                      <button class="button is-small btn-danger" title="Delete">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Wipe Kitchen Counters</div>
+                    <div class="text-muted" style="font-size: 0.8rem;">daily</div>
+                  </td>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                      <span class="avatar alex" style="width:22px;height:22px;font-size:0.6rem;">BV</span>
+                      <span style="font-size: 0.85rem;">Brittney Vo</span>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.85rem;">Mar 22</td>
+                  <td><span class="tag-status pending">pending</span></td>
+                  <td>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <button class="button is-small btn-outline" title="Edit">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                      </button>
+                      <button class="button is-small btn-danger" title="Delete">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Mop Kitchen Floor</div>
+                    <div class="text-muted" style="font-size: 0.8rem;">weekly</div>
+                  </td>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                      <span class="avatar jordan" style="width:22px;height:22px;font-size:0.6rem;">RH</span>
+                      <span style="font-size: 0.85rem;">Richie Huynh</span>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.85rem;">Mar 25</td>
+                  <td><span class="tag-status pending">pending</span></td>
+                  <td>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <button class="button is-small btn-outline" title="Edit">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                      </button>
+                      <button class="button is-small btn-danger" title="Delete">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

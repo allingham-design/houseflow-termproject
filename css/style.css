@@ -173,6 +173,40 @@ h1, h2, h3, h4, h5, h6,
   color: var(--accent);
 }
 
+/* ---------- Table ---------- */
+.table {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.table th {
+  color: var(--muted-foreground);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border);
+}
+
+.table td {
+  color: var(--foreground);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+/* ---------- Danger Button ---------- */
+.btn-danger {
+  background-color: var(--destructive);
+  color: var(--on-destructive);
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #B91C1C;
+  color: var(--on-destructive);
+}
+
 /* ---------- Section Headers ---------- */
 .section-header {
   display: flex;
