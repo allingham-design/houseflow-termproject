@@ -364,5 +364,41 @@
     </div>
   </footer>
 
+  <!-- Delete Confirmation Modal -->
+  <div class="modal" id="delete-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Delete Chore</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <p>Are you sure you want to delete <strong>Wash Dishes</strong>? This cannot be undone.</p>
+      </section>
+      <footer class="modal-card-foot" style="justify-content: flex-end;">
+        <button class="button">Cancel</button>
+        <button class="button btn-danger">Delete</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Reset Confirmation Modal -->
+  <div class="modal" id="reset-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Reset All Data</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <p>This will reset all chores to the default sample data. Any changes you made will be lost.</p>
+      </section>
+      <footer class="modal-card-foot" style="justify-content: flex-end;">
+        <button class="button">Cancel</button>
+        <button class="button btn-danger">Reset Data</button>
+      </footer>
+    </div>
+  </div>
+
 </body>
 </html>

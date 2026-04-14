@@ -354,6 +354,35 @@ h1, h2, h3, h4, h5, h6,
   border-bottom: none;
 }
 
+/* ---------- Modal ---------- */
+.modal-card {
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 500px;
+}
+
+.modal-card-head {
+  background-color: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+}
+
+.modal-card-title {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.modal-card-body {
+  background-color: var(--card);
+  padding: 1.5rem;
+}
+
+.modal-card-foot {
+  background-color: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+}
+
 /* ---------- Footer ---------- */
 .footer {
   background-color: var(--card);
