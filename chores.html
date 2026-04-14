@@ -37,18 +37,85 @@
   <section class="section" style="padding-top: 5rem;">
     <div class="container">
 
-      <div class="mb-3">
-        <h1 class="title is-3">Manage Chores</h1>
-        <p class="text-muted">Create, assign, and organize household chores for your roommates.</p>
-      </div>
+      <div class="columns">
 
-      <div class="card">
-        <div class="card-content">
-          <div class="has-text-centered" style="padding: 3rem 1rem;">
-            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--foreground); margin-bottom: 0.5rem;">Chore Management Coming Soon</h3>
-            <p class="text-muted" style="font-size: 0.9rem; max-width: 420px; margin: 0 auto;">
-              This is where you'll be able to create new chores, set recurring schedules, assign them to roommates, and track completion.
-            </p>
+        <!-- Left: Add Chore Form -->
+        <div class="column is-5">
+          <div class="card">
+            <div class="card-content">
+              <h2 class="section-title mb-2">Add New Chore</h2>
+
+              <div class="field">
+                <label class="label" for="chore-title">Chore Title</label>
+                <div class="control">
+                  <input class="input" type="text" id="chore-title" placeholder="e.g. Wash Dishes">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label" for="chore-description">Description</label>
+                <div class="control">
+                  <textarea class="textarea" id="chore-description" placeholder="What does this chore involve?" rows="2"></textarea>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label" for="chore-assigned">Assign To</label>
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select id="chore-assigned">
+                      <option value="user1">Danny Nguyen</option>
+                      <option value="user2">Brittney Vo</option>
+                      <option value="user3">Richie Huynh</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="columns">
+                <div class="column">
+                  <div class="field">
+                    <label class="label" for="chore-due">Due Date</label>
+                    <div class="control">
+                      <input class="input" type="date" id="chore-due">
+                    </div>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="field">
+                    <label class="label" for="chore-recurrence">Recurrence</label>
+                    <div class="control">
+                      <div class="select is-fullwidth">
+                        <select id="chore-recurrence">
+                          <option value="once">One-time</option>
+                          <option value="daily">Daily</option>
+                          <option value="weekly">Weekly</option>
+                          <option value="biweekly">Biweekly</option>
+                          <option value="monthly">Monthly</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field mt-3">
+                <button class="button btn-primary is-medium is-fullwidth">
+                  Add Chore
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Placeholder for chore table -->
+        <div class="column is-7">
+          <div class="section-header">
+            <h2 class="section-title">All Chores</h2>
+          </div>
+
+          <div class="has-text-centered text-muted" style="padding: 3rem;">
+            <p>No chores yet. Add one using the form.</p>
           </div>
         </div>
       </div>
