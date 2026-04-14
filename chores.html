@@ -99,11 +99,85 @@
                 </div>
               </div>
 
+              <!-- Rotation Order -->
+              <div class="field">
+                <label class="label">Rotation Order</label>
+                <p class="text-muted mb-1" style="font-size: 0.8rem;">Drag names or use arrows to set rotation order for recurring chores.</p>
+
+                <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.35rem; background: var(--card);">
+                  <span style="color: var(--muted-foreground); font-size: 0.8rem; width: 20px;">1.</span>
+                  <span class="avatar danny" style="width:24px;height:24px;font-size:0.65rem;">DN</span>
+                  <span style="font-weight: 500; font-size: 0.9rem; flex: 1;">Danny Nguyen</span>
+                  <button class="button is-small" disabled style="padding: 0.15rem 0.4rem;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+                  </button>
+                  <button class="button is-small" style="padding: 0.15rem 0.4rem;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.35rem; background: var(--card);">
+                  <span style="color: var(--muted-foreground); font-size: 0.8rem; width: 20px;">2.</span>
+                  <span class="avatar alex" style="width:24px;height:24px;font-size:0.65rem;">BV</span>
+                  <span style="font-weight: 500; font-size: 0.9rem; flex: 1;">Brittney Vo</span>
+                  <button class="button is-small" style="padding: 0.15rem 0.4rem;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+                  </button>
+                  <button class="button is-small" style="padding: 0.15rem 0.4rem;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.35rem; background: var(--card);">
+                  <span style="color: var(--muted-foreground); font-size: 0.8rem; width: 20px;">3.</span>
+                  <span class="avatar jordan" style="width:24px;height:24px;font-size:0.65rem;">RH</span>
+                  <span style="font-weight: 500; font-size: 0.9rem; flex: 1;">Richie Huynh</span>
+                  <button class="button is-small" style="padding: 0.15rem 0.4rem;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+                  </button>
+                  <button class="button is-small" disabled style="padding: 0.15rem 0.4rem;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                </div>
+              </div>
+
               <div class="field mt-3">
                 <button class="button btn-primary is-medium is-fullwidth">
                   Add Chore
                 </button>
               </div>
+            </div>
+          </div>
+
+          <!-- Roommate Overview -->
+          <div class="card mt-3">
+            <div class="card-content">
+              <h3 class="section-title mb-2" style="font-size: 1.1rem;">Roommates</h3>
+
+              <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                <span class="avatar danny">DN</span>
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 0.95rem;">Danny Nguyen</div>
+                  <div class="text-muted" style="font-size: 0.8rem;">admin &middot; 2 chores &middot; 0 done</div>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                <span class="avatar alex">BV</span>
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 0.95rem;">Brittney Vo</div>
+                  <div class="text-muted" style="font-size: 0.8rem;">roommate &middot; 2 chores &middot; 0 done</div>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0;">
+                <span class="avatar jordan">RH</span>
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 0.95rem;">Richie Huynh</div>
+                  <div class="text-muted" style="font-size: 0.8rem;">roommate &middot; 2 chores &middot; 1 done</div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
