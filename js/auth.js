@@ -9,7 +9,7 @@ const MOCK_USERS = [
   {
     id: "user1",
     name: "Danny Nguyen",
-    email: "danny@houseflow.app",
+    email: "dannynguyen995@gmail.com",
     password: "password123",
     role: "admin",
     avatar: "DN",
@@ -18,20 +18,20 @@ const MOCK_USERS = [
   {
     id: "user2",
     name: "Brittney Vo",
-    email: "brittney@houseflow.app",
+    email: "Brittneyvo1026@gmail.com",
     password: "password123",
     role: "roommate",
     avatar: "BV",
-    color: "alex"
+    color: "brittney"
   },
   {
     id: "user3",
     name: "Richie Huynh",
-    email: "richie@houseflow.app",
+    email: "richhhuynh722@gmail.com",
     password: "password123",
     role: "roommate",
     avatar: "RH",
-    color: "jordan"
+    color: "richie"
   }
 ];
 
@@ -79,7 +79,7 @@ function signup(name, email, password) {
     password: password,
     role: "roommate",
     avatar: initials,
-    color: "jordan"
+    color: "richie"
   };
 
   MOCK_USERS.push(newUser);

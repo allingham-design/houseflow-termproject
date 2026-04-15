@@ -128,7 +128,7 @@
 
                 <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.35rem; background: var(--card);">
                   <span style="color: var(--muted-foreground); font-size: 0.8rem; width: 20px;">2.</span>
-                  <span class="avatar alex" style="width:24px;height:24px;font-size:0.65rem;">BV</span>
+                  <span class="avatar brittney" style="width:24px;height:24px;font-size:0.65rem;">BV</span>
                   <span style="font-weight: 500; font-size: 0.9rem; flex: 1;">Brittney Vo</span>
                   <button class="button is-small" style="padding: 0.15rem 0.4rem;">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
@@ -140,7 +140,7 @@
 
                 <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.35rem; background: var(--card);">
                   <span style="color: var(--muted-foreground); font-size: 0.8rem; width: 20px;">3.</span>
-                  <span class="avatar jordan" style="width:24px;height:24px;font-size:0.65rem;">RH</span>
+                  <span class="avatar richie" style="width:24px;height:24px;font-size:0.65rem;">RH</span>
                   <span style="font-weight: 500; font-size: 0.9rem; flex: 1;">Richie Huynh</span>
                   <button class="button is-small" style="padding: 0.15rem 0.4rem;">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
@@ -151,6 +151,7 @@
                 </div>
               </div>
 
+              <!-- TODO: save chore to localstorage on click -->
               <div class="field mt-3">
                 <button class="button btn-primary is-medium is-fullwidth">
                   Add Chore
@@ -173,7 +174,7 @@
               </div>
 
               <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
-                <span class="avatar alex">BV</span>
+                <span class="avatar brittney">BV</span>
                 <div style="flex: 1;">
                   <div style="font-weight: 600; font-size: 0.95rem;">Brittney Vo</div>
                   <div class="text-muted" style="font-size: 0.8rem;">roommate &middot; 2 chores &middot; 0 done</div>
@@ -181,7 +182,7 @@
               </div>
 
               <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0;">
-                <span class="avatar jordan">RH</span>
+                <span class="avatar richie">RH</span>
                 <div style="flex: 1;">
                   <div style="font-weight: 600; font-size: 0.95rem;">Richie Huynh</div>
                   <div class="text-muted" style="font-size: 0.8rem;">roommate &middot; 2 chores &middot; 1 done</div>
@@ -245,7 +246,7 @@
                   </td>
                   <td>
                     <div style="display: flex; align-items: center; gap: 0.35rem;">
-                      <span class="avatar alex" style="width:22px;height:22px;font-size:0.6rem;">BV</span>
+                      <span class="avatar brittney" style="width:22px;height:22px;font-size:0.6rem;">BV</span>
                       <span style="font-size: 0.85rem;">Brittney Vo</span>
                     </div>
                   </td>
@@ -269,7 +270,7 @@
                   </td>
                   <td>
                     <div style="display: flex; align-items: center; gap: 0.35rem;">
-                      <span class="avatar jordan" style="width:22px;height:22px;font-size:0.6rem;">RH</span>
+                      <span class="avatar richie" style="width:22px;height:22px;font-size:0.6rem;">RH</span>
                       <span style="font-size: 0.85rem;">Richie Huynh</span>
                     </div>
                   </td>
@@ -317,7 +318,7 @@
                   </td>
                   <td>
                     <div style="display: flex; align-items: center; gap: 0.35rem;">
-                      <span class="avatar alex" style="width:22px;height:22px;font-size:0.6rem;">BV</span>
+                      <span class="avatar brittney" style="width:22px;height:22px;font-size:0.6rem;">BV</span>
                       <span style="font-size: 0.85rem;">Brittney Vo</span>
                     </div>
                   </td>
@@ -341,7 +342,7 @@
                   </td>
                   <td>
                     <div style="display: flex; align-items: center; gap: 0.35rem;">
-                      <span class="avatar jordan" style="width:22px;height:22px;font-size:0.6rem;">RH</span>
+                      <span class="avatar richie" style="width:22px;height:22px;font-size:0.6rem;">RH</span>
                       <span style="font-size: 0.85rem;">Richie Huynh</span>
                     </div>
                   </td>
@@ -410,5 +411,7 @@
     </div>
   </div>
 
+  <script src="js/auth.js"></script>
+  <script src="js/chores.js"></script>
 </body>
 </html>
