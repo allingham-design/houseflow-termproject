@@ -111,6 +111,33 @@
     </div>
   </section>
 
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script>
+      // Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyCNKv2brlATYTxfzrDACA0ul2qSa8TOLqs",
+  authDomain: "termproject-is424.firebaseapp.com",
+  projectId: "termproject-is424",
+  storageBucket: "termproject-is424.firebasestorage.app",
+  messagingSenderId: "360207749118",
+  appId: "1:360207749118:web:3e6a6ad265ab02c9d5baaf",
+  measurementId: "G-YBS43Y0VEM"
+};
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // define authentication variable
+        let auth = firebase.auth();
+        let db = firebase.firestore();
+
+        // define a storage reference
+        let ref = firebase.storage().ref();
+    </script>
+
   <script src="js/auth.js"></script>
+
 </body>
 </html>
