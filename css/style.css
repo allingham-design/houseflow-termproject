@@ -367,6 +367,12 @@ h1, h2, h3, h4, h5, h6,
 .avatar.danny { background-color: var(--primary); }
 .avatar.brittney { background-color: var(--accent); }
 .avatar.richie { background-color: #7C3AED; }
+.avatar.default { background-color: var(--primary); }
+.avatar.color-1 { background-color: var(--primary); }
+.avatar.color-2 { background-color: var(--accent); }
+.avatar.color-3 { background-color: #7C3AED; }
+.avatar.color-4 { background-color: #0891B2; }
+.avatar.color-5 { background-color: #059669; }
 
 /* ---------- Progress Bar ---------- */
 .progress-bar {

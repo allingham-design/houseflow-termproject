@@ -43,13 +43,17 @@ function signup(name, email, password) {
         .toUpperCase()
         .slice(0, 2);
 
+      // assign a color based on how many users exist
+      const usersSnap = await db.collection("users").get();
+      const colorIndex = (usersSnap.size % 5) + 1;
+
       const newUser = {
         id: uid,
         name,
         email,
         role: "roommate",
         avatar: initials,
-        color: "default"
+        color: "color-" + colorIndex
       };
 
       // save user profile to firestore users collection
