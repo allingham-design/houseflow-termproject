@@ -95,7 +95,7 @@
               <div id="splits-container"></div>
 
               <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem;">
-                <span id="admin-share" class="text-muted" style="font-size: 0.85rem;">Your share: $0</span>
+                <span id="split-total" class="text-muted" style="font-size: 0.85rem;"></span>
                 <button id="save-rent-btn" class="button btn-primary is-small">Save Changes</button>
               </div>
             </div>
@@ -242,11 +242,10 @@
 
       document.getElementById("rent-total").value = expenseData.rentTotal || 0;
 
-      // calculate admin share
+      // show split total
       var splitTotal = 0;
       expenseData.splits.forEach(function(s) { splitTotal += s.amount; });
-      var adminShare = (expenseData.rentTotal || 0) - splitTotal;
-      document.getElementById("admin-share").textContent = "Your share: $" + Math.max(0, adminShare);
+      document.getElementById("split-total").textContent = "Total splits: $" + splitTotal;
 
       expenseData.splits.forEach(function(split) {
         var user = allUsers.find(function(u) { return u.id === split.userId; });
@@ -268,26 +267,15 @@
         container.appendChild(row);
       });
 
-      // update admin share when split amounts change
+      // update total when split amounts change
       container.addEventListener("input", function() {
-        var total = parseInt(document.getElementById("rent-total").value) || 0;
         var sum = 0;
         document.querySelectorAll(".split-amount").forEach(function(inp) {
           sum += parseInt(inp.value) || 0;
         });
-        document.getElementById("admin-share").textContent = "Your share: $" + Math.max(0, total - sum);
+        document.getElementById("split-total").textContent = "Total splits: $" + sum;
       });
     }
-
-    // also update when rent total changes
-    document.getElementById("rent-total").addEventListener("input", function() {
-      var total = parseInt(this.value) || 0;
-      var sum = 0;
-      document.querySelectorAll(".split-amount").forEach(function(inp) {
-        sum += parseInt(inp.value) || 0;
-      });
-      document.getElementById("admin-share").textContent = "Your share: $" + Math.max(0, total - sum);
-    });
 
     // save rent config
     document.getElementById("save-rent-btn").addEventListener("click", async function() {

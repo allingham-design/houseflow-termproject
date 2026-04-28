@@ -24,12 +24,10 @@ async function getExpenses() {
     return doc.data();
   }
 
-  // doesn't exist yet, create default
+  // doesn't exist yet, create default with all users
   var users = await getAllUsers();
-  // filter out admin (admin collects rent, doesn't pay themselves)
-  var payers = users.filter(function(u) { return u.role !== "admin"; });
 
-  var defaultSplits = payers.map(function(u) {
+  var defaultSplits = users.map(function(u) {
     return { userId: u.id, amount: 0, paid: false, paidDate: null };
   });
 
@@ -96,14 +94,12 @@ async function getPaymentHistory() {
 
 // seed some sample history data for demo purposes
 async function seedExpenseHistory(users) {
-  var payers = users.filter(function(u) { return u.role !== "admin"; });
-
-  // create a few months of history
+  // create a few months of history with all users
   var months = ["2026-03", "2026-02", "2026-01"];
   for (var i = 0; i < months.length; i++) {
     var doc = await db.collection("expenses").doc(months[i]).get();
     if (!doc.exists) {
-      var splits = payers.map(function(u) {
+      var splits = users.map(function(u) {
         return {
           userId: u.id,
           amount: 600,
