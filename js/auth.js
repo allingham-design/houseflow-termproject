@@ -90,6 +90,37 @@ function isAdmin() {
   return user && user.role === "admin";
 }
 
+
+// LOGIN BUTTON
+document.getElementById("login-btn")?.addEventListener("click", async () => {
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+
+  const result = await login(email, password);
+
+  if (!result.success) {
+    alert(result.message);
+  }
+});
+
+// SIGNUP BUTTON 
+document.getElementById("signup-btn")?.addEventListener("click", async () => {
+  const name = document.getElementById("signup-name").value;
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+
+  if (!name || !email || !password) {
+    alert("Please fill out all fields.");
+    return;
+  }
+
+  const result = await signup(name, email, password);
+
+  if (!result.success) {
+    alert(result.message);
+  }
+});
+
 // Get all users (for assignment dropdowns)
 function getAllUsers() {
   return MOCK_USERS.map((u) => ({
@@ -109,3 +140,5 @@ function getUserById(id) {
   }
   return null;
 }
+
+
