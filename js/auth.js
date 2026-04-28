@@ -67,15 +67,16 @@ function signup(name, email, password) {
     });
 }
 
-// Logout
+// LOGOUT
 function logout() {
-  sessionStorage.removeItem("houseflow_user");
-  window.location.href = "index.html";
+  auth.signOut().then(() => {
+    sessionStorage.removeItem("houseflow_user");
+    window.location.href = "index.html";
+  });
 }
-
 // Protect pages - redirect to login if not authenticated
 function requireAuth() {
-  const user = getCurrentUser();
+  const user = auth.currentUser;
   if (!user) {
     window.location.href = "index.html";
     return null;
