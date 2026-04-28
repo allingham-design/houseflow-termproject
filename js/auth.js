@@ -1,25 +1,26 @@
- //  HouseFlow - Firebase Authentication
+// HouseFlow - Firebase Authentication
+// Handles login, signup, logout, and auth protection
 
-// LOGIN
+// LOGIN - authenticate with firebase and load user profile from firestore
 function login(email, password) {
   return auth.signInWithEmailAndPassword(email, password)
     .then(async (cred) => {
       const uid = cred.user.uid;
 
-      // Load Firestore profile
+      // load user profile from firestore
       const userDoc = await db.collection("users").doc(uid).get();
 
       if (!userDoc.exists) {
-        alert("User profile missing in Firestore.");
+        alert("User profile not found.");
         return { success: false };
       }
 
       const userData = userDoc.data();
 
-      // Store in sessionStorage (your site already uses this)
+      // store in session for quick access on other pages
       sessionStorage.setItem("houseflow_user", JSON.stringify(userData));
 
-      // Redirect to dashboard
+      // redirect to dashboard
       window.location.href = "dashboard.html";
 
       return { success: true };
@@ -29,7 +30,7 @@ function login(email, password) {
     });
 }
 
-// SIGNUP
+// SIGNUP - create firebase auth account and save profile to firestore
 function signup(name, email, password) {
   return auth.createUserWithEmailAndPassword(email, password)
     .then(async (cred) => {
@@ -51,13 +52,13 @@ function signup(name, email, password) {
         color: "default"
       };
 
-      // Save to Firestore
+      // save user profile to firestore users collection
       await db.collection("users").doc(uid).set(newUser);
 
-      // Save to session
+      // store in session
       sessionStorage.setItem("houseflow_user", JSON.stringify(newUser));
 
-      // Redirect
+      // redirect
       window.location.href = "dashboard.html";
 
       return { success: true };
@@ -67,23 +68,15 @@ function signup(name, email, password) {
     });
 }
 
-// LOGOUT
+// LOGOUT - sign out of firebase and clear session
 function logout() {
   auth.signOut().then(() => {
     sessionStorage.removeItem("houseflow_user");
     window.location.href = "index.html";
   });
 }
-// Protect pages - redirect to login if not authenticated
-function requireAuth() {
-  auth.onAuthStateChanged((user) => {
-    if (!user) {
-      window.location.href = "index.html";
-    }
-  });
-}
 
-// Check if user is admin
+// check if current user is admin based on session data
 function isAdmin() {
   const data = sessionStorage.getItem("houseflow_user");
   if (!data) return false;
@@ -91,8 +84,7 @@ function isAdmin() {
   return user && user.role === "admin";
 }
 
-
-// LOGIN BUTTON
+// LOGIN BUTTON handler
 document.getElementById("login-btn")?.addEventListener("click", async () => {
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
@@ -100,11 +92,11 @@ document.getElementById("login-btn")?.addEventListener("click", async () => {
   const result = await login(email, password);
 
   if (!result.success) {
-    alert(result.message);
+    alert(result.message || "Login failed.");
   }
 });
 
-// SIGNUP BUTTON 
+// SIGNUP BUTTON handler
 document.getElementById("signup-btn")?.addEventListener("click", async () => {
   const name = document.getElementById("signup-name").value;
   const email = document.getElementById("signup-email").value;
@@ -118,9 +110,6 @@ document.getElementById("signup-btn")?.addEventListener("click", async () => {
   const result = await signup(name, email, password);
 
   if (!result.success) {
-    alert(result.message);
+    alert(result.message || "Signup failed.");
   }
 });
-
-
-
