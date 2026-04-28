@@ -47,11 +47,6 @@
   <section class="section" style="padding-top: 5rem;">
     <div class="container">
 
-      <!-- Non-admin notice (hidden by default) -->
-      <div id="admin-notice" class="notification is-warning is-light mb-3" style="display: none;">
-        <strong>View Only</strong> &mdash; Only admins can add, edit, or delete chores.
-      </div>
-
       <div class="columns">
 
         <!-- Left: Add Chore Form -->
@@ -268,11 +263,7 @@
       document.getElementById("nav-name").textContent = currentUser.name;
       document.getElementById("nav-role").textContent = currentUser.role;
 
-      // role-based access: hide form for non-admins
-      if (currentUser.role !== "admin") {
-        document.getElementById("admin-notice").style.display = "block";
-        document.getElementById("form-column").style.display = "none";
-      }
+      // all authenticated users can manage chores
 
       await loadChoresPage();
     });
@@ -499,7 +490,6 @@
           dueDateStr = months[parseInt(parts[1]) - 1] + " " + parseInt(parts[2]);
         }
 
-        var isAdmin = currentUser.role === "admin";
         var tr = document.createElement("tr");
         tr.innerHTML =
           '<td>' +
@@ -515,16 +505,14 @@
           '<td style="font-size: 0.85rem;">' + dueDateStr + '</td>' +
           '<td><span class="tag-status ' + chore.status + '">' + chore.status + '</span></td>' +
           '<td>' +
-            (isAdmin ?
-              '<div style="display: flex; gap: 0.35rem;">' +
-                '<button class="button is-small btn-outline edit-btn" data-id="' + chore.id + '" title="Edit">' +
-                  '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>' +
-                '</button>' +
-                '<button class="button is-small btn-danger delete-btn" data-id="' + chore.id + '" data-title="' + chore.title + '" title="Delete">' +
-                  '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>' +
-                '</button>' +
-              '</div>'
-            : '<span class="text-muted" style="font-size: 0.8rem;">—</span>') +
+            '<div style="display: flex; gap: 0.35rem;">' +
+              '<button class="button is-small btn-outline edit-btn" data-id="' + chore.id + '" title="Edit">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>' +
+              '</button>' +
+              '<button class="button is-small btn-danger delete-btn" data-id="' + chore.id + '" data-title="' + chore.title + '" title="Delete">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>' +
+              '</button>' +
+            '</div>' +
           '</td>';
 
         tbody.appendChild(tr);
