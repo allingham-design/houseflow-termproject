@@ -29,35 +29,42 @@ function login(email, password) {
     });
 }
 
-// Signup (mock - adds to session only)
+// SIGNUP
 function signup(name, email, password) {
-  const exists = MOCK_USERS.find((u) => u.email === email);
-  if (exists) {
-    return { success: false, message: "An account with this email already exists." };
-  }
+  return auth.createUserWithEmailAndPassword(email, password)
+    .then(async (cred) => {
+      const uid = cred.user.uid;
 
-  const initials = name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
+      const initials = name
+        .split(" ")
+        .map(n => n[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2);
 
-  const newUser = {
-    id: "user" + (MOCK_USERS.length + 1),
-    name: name,
-    email: email,
-    password: password,
-    role: "roommate",
-    avatar: initials,
-    color: "richie"
-  };
+      const newUser = {
+        id: uid,
+        name,
+        email,
+        role: "roommate",
+        avatar: initials,
+        color: "default"
+      };
 
-  MOCK_USERS.push(newUser);
-  const sessionUser = { ...newUser };
-  delete sessionUser.password;
-  sessionStorage.setItem("houseflow_user", JSON.stringify(sessionUser));
-  return { success: true, user: sessionUser };
+      // Save to Firestore
+      await db.collection("users").doc(uid).set(newUser);
+
+      // Save to session
+      sessionStorage.setItem("houseflow_user", JSON.stringify(newUser));
+
+      // Redirect
+      window.location.href = "dashboard.html";
+
+      return { success: true };
+    })
+    .catch((err) => {
+      return { success: false, message: err.message };
+    });
 }
 
 // Logout
