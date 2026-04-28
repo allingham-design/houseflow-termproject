@@ -1,61 +1,32 @@
-/* ============================================
-   HouseFlow - Mock Authentication
-   Simulates login/signup for prototype phase.
-   Will be replaced with Firebase Auth later.
-   ============================================ */
+ //  HouseFlow - Firebase Authentication
 
-// Mock user database
-const MOCK_USERS = [
-  {
-    id: "user1",
-    name: "Danny Nguyen",
-    email: "dannynguyen995@gmail.com",
-    password: "password123",
-    role: "admin",
-    avatar: "DN",
-    color: "danny"
-  },
-  {
-    id: "user2",
-    name: "Brittney Vo",
-    email: "Brittneyvo1026@gmail.com",
-    password: "password123",
-    role: "roommate",
-    avatar: "BV",
-    color: "brittney"
-  },
-  {
-    id: "user3",
-    name: "Richie Huynh",
-    email: "richhhuynh722@gmail.com",
-    password: "password123",
-    role: "roommate",
-    avatar: "RH",
-    color: "richie"
-  }
-];
-
-// Get current logged-in user from session
-function getCurrentUser() {
-  const userData = sessionStorage.getItem("houseflow_user");
-  if (userData) {
-    return JSON.parse(userData);
-  }
-  return null;
-}
-
-// Login
+// LOGIN
 function login(email, password) {
-  const user = MOCK_USERS.find(
-    (u) => u.email === email && u.password === password
-  );
-  if (user) {
-    const sessionUser = { ...user };
-    delete sessionUser.password;
-    sessionStorage.setItem("houseflow_user", JSON.stringify(sessionUser));
-    return { success: true, user: sessionUser };
-  }
-  return { success: false, message: "Invalid email or password." };
+  return auth.signInWithEmailAndPassword(email, password)
+    .then(async (cred) => {
+      const uid = cred.user.uid;
+
+      // Load Firestore profile
+      const userDoc = await db.collection("users").doc(uid).get();
+
+      if (!userDoc.exists) {
+        alert("User profile missing in Firestore.");
+        return { success: false };
+      }
+
+      const userData = userDoc.data();
+
+      // Store in sessionStorage (your site already uses this)
+      sessionStorage.setItem("houseflow_user", JSON.stringify(userData));
+
+      // Redirect to dashboard
+      window.location.href = "dashboard.html";
+
+      return { success: true };
+    })
+    .catch((err) => {
+      return { success: false, message: err.message };
+    });
 }
 
 // Signup (mock - adds to session only)
