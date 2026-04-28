@@ -76,17 +76,18 @@ function logout() {
 }
 // Protect pages - redirect to login if not authenticated
 function requireAuth() {
-  const user = auth.currentUser;
-  if (!user) {
-    window.location.href = "index.html";
-    return null;
-  }
-  return user;
+  auth.onAuthStateChanged((user) => {
+    if (!user) {
+      window.location.href = "index.html";
+    }
+  });
 }
 
 // Check if user is admin
 function isAdmin() {
-  const user = getCurrentUser();
+  const data = sessionStorage.getItem("houseflow_user");
+  if (!data) return false;
+  const user = JSON.parse(data);
   return user && user.role === "admin";
 }
 
@@ -121,24 +122,5 @@ document.getElementById("signup-btn")?.addEventListener("click", async () => {
   }
 });
 
-// Get all users (for assignment dropdowns)
-function getAllUsers() {
-  return MOCK_USERS.map((u) => ({
-    id: u.id,
-    name: u.name,
-    avatar: u.avatar,
-    color: u.color,
-    role: u.role
-  }));
-}
-
-// Get user by ID
-function getUserById(id) {
-  const user = MOCK_USERS.find((u) => u.id === id);
-  if (user) {
-    return { id: user.id, name: user.name, avatar: user.avatar, color: user.color, role: user.role };
-  }
-  return null;
-}
 
 
