@@ -176,12 +176,20 @@ function getCompletionCounts(chores) {
   return counts;
 }
 
+// available avatar colors
+var avatarColors = ["color-1", "color-2", "color-3", "color-4", "color-5"];
+
 // get all users from the users collection
+// assigns a unique color to each user based on their position
 async function getAllUsers() {
   var snapshot = await db.collection("users").get();
   var users = [];
+  var i = 0;
   snapshot.forEach(function(doc) {
-    users.push({ id: doc.id, ...doc.data() });
+    var u = { id: doc.id, ...doc.data() };
+    u.color = avatarColors[i % avatarColors.length];
+    i++;
+    users.push(u);
   });
   return users;
 }
