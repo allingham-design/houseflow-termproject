@@ -79,15 +79,10 @@ async function markAsUnpaid(userId) {
 
 // get payment history (all past month documents)
 async function getPaymentHistory() {
-  var currentMonth = getCurrentMonthKey();
   var snapshot = await db.collection("expenses").orderBy("month", "desc").get();
   var history = [];
   snapshot.forEach(function(doc) {
-    var data = doc.data();
-    // skip current month
-    if (data.month !== currentMonth) {
-      history.push(data);
-    }
+    history.push(doc.data());
   });
   return history;
 }
