@@ -23,16 +23,27 @@ async function getExpenses() {
   if (doc.exists) {
     var data = doc.data();
 
-    // check if any new users need to be added to splits
+    // sync splits with current users (add new, remove deleted)
     var users = await getAllUsers();
-    var existingIds = data.splits.map(function(s) { return s.userId; });
+    var userIds = users.map(function(u) { return u.id; });
     var updated = false;
+
+    // add any new users
+    var existingIds = data.splits.map(function(s) { return s.userId; });
     users.forEach(function(u) {
       if (existingIds.indexOf(u.id) === -1) {
         data.splits.push({ userId: u.id, amount: 0, paid: false, paidDate: null });
         updated = true;
       }
     });
+
+    // remove users that no longer exist
+    var before = data.splits.length;
+    data.splits = data.splits.filter(function(s) {
+      return userIds.indexOf(s.userId) !== -1;
+    });
+    if (data.splits.length !== before) updated = true;
+
     if (updated) {
       await db.collection("expenses").doc(monthKey).set(data);
     }
