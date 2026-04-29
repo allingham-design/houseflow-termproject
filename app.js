@@ -1,48 +1,63 @@
 const puppeteer = require("puppeteer");
 
+const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
 async function go() {
   const browser = await puppeteer.launch({
     headless: false,
-    slowMo: 50,
+    slowMo: 40,
   });
 
   const page = await browser.newPage();
 
   // 1. Go to login page
-  await page.goto("http://127.0.0.1:5501/index.html");
+  await page.goto("http://127.0.0.1:5501/index.html", {
+    waitUntil: "networkidle2",
+  });
 
-  // 2. Login
+  // 2. LOGIN AS ROOMMATE USER (NOT ADMIN)
   await page.waitForSelector("#login-email");
 
-  await page.type("#login-email", "dannynguyen995@gmail.com");
+  await page.type("#login-email", "roommate1@test.com");
   await page.type("#login-password", "password123");
 
   await page.click("#login-btn");
 
   // wait for Firebase auth + redirect
-  await page.waitForTimeout(2000);
+  await delay(3000);
 
-  // 3. Go to chores page
-  await page.goto("http://127.0.0.1:5501/chores.html");
+  // OPTIONAL: ensure we are logged in as roommate
+  const role = await page.evaluate(() => {
+    const user = JSON.parse(sessionStorage.getItem("houseflow_user") || "{}");
+    return user.role;
+  });
 
-  // wait for page to load
+  console.log("Logged in role:", role);
+
+  // 3. GO TO CHORES PAGE
+  await page.goto("http://127.0.0.1:5501/chores.html", {
+    waitUntil: "networkidle2",
+  });
+
   await page.waitForSelector("#chore-title");
 
-  // 4. WAIT for dropdown to populate (important)
+  // 4. WAIT FOR USERS DROPDOWN (important for Firebase load)
   await page.waitForFunction(() => {
     const select = document.querySelector("#chore-assigned");
     return select && select.options.length > 0;
   });
 
-  // 5. Fill form
+  // 5. FILL OUT FORM
   await page.type("#chore-title", "Take out trash");
   await page.type("#chore-description", "Take trash to dumpster");
 
-  // select first user
-  await page.select(
-    "#chore-assigned",
-    await page.$eval("#chore-assigned option", (el) => el.value),
+  // select first roommate in dropdown
+  const firstUser = await page.$eval(
+    "#chore-assigned option",
+    (el) => el.value,
   );
+
+  await page.select("#chore-assigned", firstUser);
 
   // due date
   await page.type("#chore-due", "2026-05-01");
@@ -50,20 +65,19 @@ async function go() {
   // recurrence
   await page.select("#chore-recurrence", "weekly");
 
-  // 6. Submit
+  // 6. SUBMIT CHORE
   await page.click("#save-chore-btn");
 
-  // wait for UI update
-  await page.waitForTimeout(2000);
+  await delay(3000);
 
-  // 7. Verify
-  const success = await page.evaluate(() =>
-    document.body.innerText.includes("Take out trash"),
-  );
+  // 7. VERIFY CHORE EXISTS
+  const success = await page.evaluate(() => {
+    return document.body.innerText.includes("Take out trash");
+  });
 
   console.log(success ? "✅ Chore created!" : "❌ Failed");
 
-  await page.waitForTimeout(5000);
+  await delay(5000);
 
   await browser.close();
 }
