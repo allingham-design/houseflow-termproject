@@ -21,7 +21,23 @@ async function getExpenses() {
   var doc = await db.collection("expenses").doc(monthKey).get();
 
   if (doc.exists) {
-    return doc.data();
+    var data = doc.data();
+
+    // check if any new users need to be added to splits
+    var users = await getAllUsers();
+    var existingIds = data.splits.map(function(s) { return s.userId; });
+    var updated = false;
+    users.forEach(function(u) {
+      if (existingIds.indexOf(u.id) === -1) {
+        data.splits.push({ userId: u.id, amount: 0, paid: false, paidDate: null });
+        updated = true;
+      }
+    });
+    if (updated) {
+      await db.collection("expenses").doc(monthKey).set(data);
+    }
+
+    return data;
   }
 
   // doesn't exist yet, create default with all users
