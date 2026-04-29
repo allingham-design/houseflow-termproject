@@ -122,6 +122,51 @@ h1, h2, h3, h4, h5, h6,
   border: none;
 }
 
+<<<<<<< HEAD
+=======
+/* ---------- Hero (Login Page) ---------- */
+.hero-login {
+  background-color: var(--primary);
+  background-image: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.hero-login .title,
+.hero-login .subtitle {
+  color: var(--on-primary);
+}
+
+.login-card {
+  background-color: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2.5rem;
+}
+
+.login-card .title {
+  color: var(--foreground);
+}
+
+/* ---------- Tabs ---------- */
+.tabs li.is-active a {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  font-weight: 600;
+}
+
+.tabs a {
+  color: var(--muted-foreground);
+  border-bottom-color: var(--border);
+  font-weight: 500;
+}
+
+.tabs a:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary-light);
+}
+
+>>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
 /* ---------- Cards ---------- */
 .card {
   background-color: var(--card);
@@ -173,6 +218,43 @@ h1, h2, h3, h4, h5, h6,
   color: var(--accent);
 }
 
+<<<<<<< HEAD
+=======
+/* ---------- Table ---------- */
+.table {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.table th {
+  color: var(--muted-foreground);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border);
+}
+
+.table td {
+  color: var(--foreground);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+/* ---------- Danger Button ---------- */
+.btn-danger {
+  background-color: var(--destructive);
+  color: var(--on-destructive);
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #B91C1C;
+  color: var(--on-destructive);
+}
+
+>>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
 /* ---------- Section Headers ---------- */
 .section-header {
   display: flex;
@@ -289,8 +371,19 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .avatar.danny { background-color: var(--primary); }
+<<<<<<< HEAD
 .avatar.alex { background-color: var(--accent); }
 .avatar.jordan { background-color: #7C3AED; }
+=======
+.avatar.brittney { background-color: var(--accent); }
+.avatar.richie { background-color: #7C3AED; }
+.avatar.default { background-color: var(--primary); }
+.avatar.color-1 { background-color: var(--primary); }
+.avatar.color-2 { background-color: var(--accent); }
+.avatar.color-3 { background-color: #7C3AED; }
+.avatar.color-4 { background-color: #0891B2; }
+.avatar.color-5 { background-color: #059669; }
+>>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
 
 /* ---------- Progress Bar ---------- */
 .progress-bar {
@@ -320,6 +413,38 @@ h1, h2, h3, h4, h5, h6,
   border-bottom: none;
 }
 
+<<<<<<< HEAD
+=======
+/* ---------- Modal ---------- */
+.modal-card {
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 500px;
+}
+
+.modal-card-head {
+  background-color: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+}
+
+.modal-card-title {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.modal-card-body {
+  background-color: var(--card);
+  padding: 1.5rem;
+}
+
+.modal-card-foot {
+  background-color: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+}
+
+>>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
 /* ---------- Footer ---------- */
 .footer {
   background-color: var(--card);

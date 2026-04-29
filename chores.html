@@ -17,8 +17,18 @@
         <a class="navbar-item" href="dashboard.html">
           HouseFlow
         </a>
+<<<<<<< HEAD
       </div>
       <div class="navbar-menu">
+=======
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNav">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="mainNav" class="navbar-menu">
+>>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
         <div class="navbar-start">
           <a class="navbar-item" href="dashboard.html">Dashboard</a>
           <a class="navbar-item is-active" href="chores.html">Manage Chores</a>
@@ -26,7 +36,16 @@
         </div>
         <div class="navbar-end">
           <div class="navbar-item">
+<<<<<<< HEAD
             <button class="button btn-outline is-small">Log Out</button>
+=======
+            <span id="nav-avatar" class="avatar" style="width:28px;height:28px;font-size:0.7rem;"></span>
+            <span id="nav-name" style="font-weight: 600; margin-left: 0.25rem;"></span>
+            <span id="nav-role" class="tag is-light ml-2" style="font-size: 0.7rem; text-transform: uppercase;"></span>
+          </div>
+          <div class="navbar-item">
+            <button id="logout-btn" class="button btn-outline is-small">Log Out</button>
+>>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
           </div>
         </div>
       </div>
@@ -37,6 +56,7 @@
   <section class="section" style="padding-top: 5rem;">
     <div class="container">
 
+<<<<<<< HEAD
       <div class="mb-3">
         <h1 class="title is-3">Manage Chores</h1>
         <p class="text-muted">Create, assign, and organize household chores for your roommates.</p>
@@ -49,6 +69,123 @@
             <p class="text-muted" style="font-size: 0.9rem; max-width: 420px; margin: 0 auto;">
               This is where you'll be able to create new chores, set recurring schedules, assign them to roommates, and track completion.
             </p>
+=======
+      <div class="columns">
+
+        <!-- Left: Add Chore Form -->
+        <div class="column is-5" id="form-column">
+          <div class="card">
+            <div class="card-content">
+              <h2 id="form-title" class="section-title mb-2">Add New Chore</h2>
+
+              <div class="field">
+                <label class="label" for="chore-title">Chore Title</label>
+                <div class="control">
+                  <input class="input" type="text" id="chore-title" placeholder="e.g. Wash Dishes">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label" for="chore-description">Description</label>
+                <div class="control">
+                  <textarea class="textarea" id="chore-description" placeholder="What does this chore involve?" rows="2"></textarea>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label" for="chore-assigned">Assign To</label>
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select id="chore-assigned">
+                      <!-- populated from firestore users -->
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="columns">
+                <div class="column">
+                  <div class="field">
+                    <label class="label" for="chore-due">Due Date</label>
+                    <div class="control">
+                      <input class="input" type="date" id="chore-due">
+                    </div>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="field">
+                    <label class="label" for="chore-recurrence">Recurrence</label>
+                    <div class="control">
+                      <div class="select is-fullwidth">
+                        <select id="chore-recurrence">
+                          <option value="once">One-time</option>
+                          <option value="daily">Daily</option>
+                          <option value="weekly">Weekly</option>
+                          <option value="biweekly">Biweekly</option>
+                          <option value="monthly">Monthly</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rotation Order -->
+              <div class="field">
+                <label class="label">Rotation Order</label>
+                <p class="text-muted mb-1" style="font-size: 0.8rem;">Use arrows to set rotation order for recurring chores.</p>
+                <div id="rotation-order-list"></div>
+              </div>
+
+              <!-- hidden field for editing -->
+              <input type="hidden" id="editing-chore-id" value="">
+
+              <div class="field mt-3">
+                <button id="save-chore-btn" class="button btn-primary is-medium is-fullwidth">
+                  Add Chore
+                </button>
+              </div>
+              <div class="field" id="cancel-edit-row" style="display: none;">
+                <button id="cancel-edit-btn" class="button is-medium is-fullwidth">Cancel Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Roommate Overview -->
+          <div class="card mt-3">
+            <div class="card-content">
+              <h3 class="section-title mb-2" style="font-size: 1.1rem;">Roommates</h3>
+              <div id="roommate-overview"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Chore Table -->
+        <div class="column is-7">
+          <div class="section-header">
+            <h2 class="section-title">All Chores</h2>
+            <button id="reset-btn" class="button btn-danger is-small">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              Reset Data
+            </button>
+          </div>
+
+          <div class="table-container">
+            <table class="table is-fullwidth is-hoverable">
+              <thead>
+                <tr>
+                  <th>Chore</th>
+                  <th>Assigned</th>
+                  <th>Due</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="chore-table-body">
+                <!-- rendered by JS -->
+              </tbody>
+            </table>
+>>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
           </div>
         </div>
       </div>
@@ -63,5 +200,400 @@
     </div>
   </footer>
 
+<<<<<<< HEAD
+=======
+  <!-- Delete Confirmation Modal -->
+  <div class="modal" id="delete-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Delete Chore</p>
+        <button class="delete" aria-label="close" onclick="closeDeleteModal()"></button>
+      </header>
+      <section class="modal-card-body">
+        <p>Are you sure you want to delete <strong id="delete-chore-name"></strong>? This cannot be undone.</p>
+      </section>
+      <footer class="modal-card-foot" style="justify-content: flex-end;">
+        <button class="button" onclick="closeDeleteModal()">Cancel</button>
+        <button class="button btn-danger" id="confirm-delete-btn">Delete</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Reset Confirmation Modal -->
+  <div class="modal" id="reset-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Reset All Data</p>
+        <button class="delete" aria-label="close" onclick="closeResetModal()"></button>
+      </header>
+      <section class="modal-card-body">
+        <p>This will reset all chores to the default sample data. Any changes you made will be lost.</p>
+      </section>
+      <footer class="modal-card-foot" style="justify-content: flex-end;">
+        <button class="button" onclick="closeResetModal()">Cancel</button>
+        <button class="button btn-danger" id="confirm-reset-btn">Reset Data</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Firebase v8 -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCNKv2brlATYTxfzrDACA0ul2qSa8TOLqs",
+      authDomain: "termproject-is424.firebaseapp.com",
+      projectId: "termproject-is424",
+      storageBucket: "termproject-is424.firebasestorage.app",
+      messagingSenderId: "360207749118",
+      appId: "1:360207749118:web:3e6a6ad265ab02c9d5baaf",
+      measurementId: "G-YBS43Y0VEM"
+    };
+    firebase.initializeApp(firebaseConfig);
+    let auth = firebase.auth();
+    let db = firebase.firestore();
+  </script>
+
+  <script src="js/auth.js"></script>
+  <script src="js/chores.js"></script>
+
+  <script>
+    // ---- state ----
+    var currentUser = null;
+    var allUsers = [];
+    var allChores = [];
+    var rotationOrderList = []; // UIDs in current rotation order
+    var choreToDelete = null;
+
+    // ---- auth check ----
+    auth.onAuthStateChanged(async function(user) {
+      if (!user) {
+        window.location.href = "index.html";
+        return;
+      }
+
+      var data = sessionStorage.getItem("houseflow_user");
+      if (!data) {
+        window.location.href = "index.html";
+        return;
+      }
+      currentUser = JSON.parse(data);
+
+      // navbar
+      document.getElementById("nav-avatar").textContent = currentUser.avatar || "";
+      document.getElementById("nav-avatar").className = "avatar " + (currentUser.color || "");
+      document.getElementById("nav-name").textContent = currentUser.name;
+      document.getElementById("nav-role").textContent = currentUser.role;
+
+      // all authenticated users can manage chores
+
+      await loadChoresPage();
+    });
+
+    // ---- load page data ----
+    async function loadChoresPage() {
+      allUsers = await getAllUsers();
+      allChores = await getAllChores();
+
+      populateAssignDropdown();
+      buildRotationOrder();
+      renderChoreTable();
+      renderRoommateOverview();
+    }
+
+    // ---- populate assign-to dropdown from users collection ----
+    function populateAssignDropdown() {
+      var select = document.getElementById("chore-assigned");
+      select.innerHTML = "";
+      allUsers.forEach(function(u) {
+        var opt = document.createElement("option");
+        opt.value = u.id;
+        opt.textContent = u.name;
+        select.appendChild(opt);
+      });
+    }
+
+    // ---- rotation order UI ----
+    function buildRotationOrder() {
+      rotationOrderList = allUsers.map(function(u) { return u.id; });
+      renderRotationOrder();
+    }
+
+    function renderRotationOrder() {
+      var container = document.getElementById("rotation-order-list");
+      container.innerHTML = "";
+
+      rotationOrderList.forEach(function(uid, index) {
+        var user = allUsers.find(function(u) { return u.id === uid; });
+        if (!user) return;
+
+        var row = document.createElement("div");
+        row.style.cssText = "display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.35rem; background: var(--card);";
+
+        row.innerHTML =
+          '<span style="color: var(--muted-foreground); font-size: 0.8rem; width: 20px;">' + (index + 1) + '.</span>' +
+          '<span class="avatar ' + (user.color || "") + '" style="width:24px;height:24px;font-size:0.65rem;">' + (user.avatar || "") + '</span>' +
+          '<span style="font-weight: 500; font-size: 0.9rem; flex: 1;">' + user.name + '</span>';
+
+        // up button
+        var upBtn = document.createElement("button");
+        upBtn.className = "button is-small";
+        upBtn.style.padding = "0.15rem 0.4rem";
+        upBtn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
+        if (index === 0) upBtn.disabled = true;
+        upBtn.addEventListener("click", function() { swapRotation(index, index - 1); });
+
+        // down button
+        var downBtn = document.createElement("button");
+        downBtn.className = "button is-small";
+        downBtn.style.padding = "0.15rem 0.4rem";
+        downBtn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>';
+        if (index === rotationOrderList.length - 1) downBtn.disabled = true;
+        downBtn.addEventListener("click", function() { swapRotation(index, index + 1); });
+
+        row.appendChild(upBtn);
+        row.appendChild(downBtn);
+        container.appendChild(row);
+      });
+    }
+
+    function swapRotation(i, j) {
+      var temp = rotationOrderList[i];
+      rotationOrderList[i] = rotationOrderList[j];
+      rotationOrderList[j] = temp;
+      renderRotationOrder();
+    }
+
+    // ---- save chore (add or update) ----
+    document.getElementById("save-chore-btn").addEventListener("click", async function() {
+      var title = document.getElementById("chore-title").value.trim();
+      var description = document.getElementById("chore-description").value.trim();
+      var assignedTo = document.getElementById("chore-assigned").value;
+      var dueDate = document.getElementById("chore-due").value;
+      var recurrence = document.getElementById("chore-recurrence").value;
+      var editId = document.getElementById("editing-chore-id").value;
+
+      if (!title || !assignedTo || !dueDate) {
+        alert("Please fill in at least the title, assignee, and due date.");
+        return;
+      }
+
+      if (editId) {
+        // update existing chore
+        await updateChore(editId, {
+          title: title,
+          description: description,
+          assignedTo: assignedTo,
+          dueDate: dueDate,
+          recurrence: recurrence,
+          rotationOrder: rotationOrderList.slice()
+        });
+        cancelEdit();
+      } else {
+        // add new chore
+        await addChore({
+          title: title,
+          description: description,
+          assignedTo: assignedTo,
+          dueDate: dueDate,
+          recurrence: recurrence,
+          rotationOrder: rotationOrderList.slice(),
+          createdBy: currentUser.id
+        });
+      }
+
+      // clear form and reload
+      clearForm();
+      await loadChoresPage();
+    });
+
+    function clearForm() {
+      document.getElementById("chore-title").value = "";
+      document.getElementById("chore-description").value = "";
+      document.getElementById("chore-due").value = "";
+      document.getElementById("chore-recurrence").value = "once";
+      document.getElementById("editing-chore-id").value = "";
+    }
+
+    // ---- edit chore ----
+    function editChore(choreId) {
+      var chore = allChores.find(function(c) { return c.id === choreId; });
+      if (!chore) return;
+
+      document.getElementById("chore-title").value = chore.title;
+      document.getElementById("chore-description").value = chore.description || "";
+      document.getElementById("chore-assigned").value = chore.assignedTo;
+      document.getElementById("chore-due").value = chore.dueDate;
+      document.getElementById("chore-recurrence").value = chore.recurrence || "once";
+      document.getElementById("editing-chore-id").value = chore.id;
+
+      // update rotation order if chore has one
+      if (chore.rotationOrder && chore.rotationOrder.length > 0) {
+        rotationOrderList = chore.rotationOrder.slice();
+        renderRotationOrder();
+      }
+
+      // update button text and show cancel
+      document.getElementById("form-title").textContent = "Edit Chore";
+      document.getElementById("save-chore-btn").textContent = "Update Chore";
+      document.getElementById("cancel-edit-row").style.display = "block";
+
+      // scroll to form
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function cancelEdit() {
+      clearForm();
+      document.getElementById("form-title").textContent = "Add New Chore";
+      document.getElementById("save-chore-btn").textContent = "Add Chore";
+      document.getElementById("cancel-edit-row").style.display = "none";
+      buildRotationOrder();
+    }
+
+    document.getElementById("cancel-edit-btn").addEventListener("click", function() {
+      cancelEdit();
+    });
+
+    // ---- delete chore ----
+    function openDeleteModal(choreId, choreTitle) {
+      choreToDelete = choreId;
+      document.getElementById("delete-chore-name").textContent = choreTitle;
+      document.getElementById("delete-modal").classList.add("is-active");
+    }
+
+    function closeDeleteModal() {
+      document.getElementById("delete-modal").classList.remove("is-active");
+      choreToDelete = null;
+    }
+
+    document.getElementById("confirm-delete-btn").addEventListener("click", async function() {
+      if (!choreToDelete) return;
+      await deleteChore(choreToDelete);
+      closeDeleteModal();
+      await loadChoresPage();
+    });
+
+    // ---- reset data ----
+    document.getElementById("reset-btn").addEventListener("click", function() {
+      document.getElementById("reset-modal").classList.add("is-active");
+    });
+
+    function closeResetModal() {
+      document.getElementById("reset-modal").classList.remove("is-active");
+    }
+
+    document.getElementById("confirm-reset-btn").addEventListener("click", async function() {
+      await resetChores();
+      closeResetModal();
+      await loadChoresPage();
+    });
+
+    // ---- render chore table ----
+    function renderChoreTable() {
+      var tbody = document.getElementById("chore-table-body");
+      tbody.innerHTML = "";
+
+      if (allChores.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="has-text-centered text-muted">No chores yet. Add one using the form.</td></tr>';
+        return;
+      }
+
+      allChores.forEach(function(chore) {
+        var assignee = allUsers.find(function(u) { return u.id === chore.assignedTo; });
+        var name = assignee ? assignee.name : "Unassigned";
+        var avatar = assignee ? assignee.avatar : "?";
+        var color = assignee ? (assignee.color || "") : "";
+
+        // format due date
+        var dueDateStr = "";
+        if (chore.dueDate) {
+          var parts = chore.dueDate.split("-");
+          var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+          dueDateStr = months[parseInt(parts[1]) - 1] + " " + parseInt(parts[2]);
+        }
+
+        var tr = document.createElement("tr");
+        tr.innerHTML =
+          '<td>' +
+            '<div style="font-weight: 600;">' + chore.title + '</div>' +
+            '<div class="text-muted" style="font-size: 0.8rem;">' + (chore.recurrence || "once") + '</div>' +
+          '</td>' +
+          '<td>' +
+            '<div style="display: flex; align-items: center; gap: 0.35rem;">' +
+              '<span class="avatar ' + color + '" style="width:22px;height:22px;font-size:0.6rem;">' + avatar + '</span>' +
+              '<span style="font-size: 0.85rem;">' + name + '</span>' +
+            '</div>' +
+          '</td>' +
+          '<td style="font-size: 0.85rem;">' + dueDateStr + '</td>' +
+          '<td><span class="tag-status ' + chore.status + '">' + chore.status + '</span></td>' +
+          '<td>' +
+            '<div style="display: flex; gap: 0.35rem;">' +
+              '<button class="button is-small btn-outline edit-btn" data-id="' + chore.id + '" title="Edit">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>' +
+              '</button>' +
+              '<button class="button is-small btn-danger delete-btn" data-id="' + chore.id + '" data-title="' + chore.title + '" title="Delete">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>' +
+              '</button>' +
+            '</div>' +
+          '</td>';
+
+        tbody.appendChild(tr);
+      });
+
+      // attach edit/delete handlers
+      document.querySelectorAll(".edit-btn").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          editChore(this.getAttribute("data-id"));
+        });
+      });
+      document.querySelectorAll(".delete-btn").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          openDeleteModal(this.getAttribute("data-id"), this.getAttribute("data-title"));
+        });
+      });
+    }
+
+    // ---- roommate overview ----
+    function renderRoommateOverview() {
+      var container = document.getElementById("roommate-overview");
+      container.innerHTML = "";
+
+      allUsers.forEach(function(user, index) {
+        var assigned = allChores.filter(function(c) { return c.assignedTo === user.id; }).length;
+        var done = allChores.filter(function(c) { return c.assignedTo === user.id && c.status === "completed"; }).length;
+
+        var borderStyle = index < allUsers.length - 1 ? "border-bottom: 1px solid var(--border);" : "";
+
+        var html = '<div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; ' + borderStyle + '">';
+        html += '<span class="avatar ' + (user.color || "") + '">' + (user.avatar || "") + '</span>';
+        html += '<div style="flex: 1;">';
+        html += '<div style="font-weight: 600; font-size: 0.95rem;">' + user.name + '</div>';
+        html += '<div class="text-muted" style="font-size: 0.8rem;">' + user.role + ' &middot; ' + assigned + ' chores &middot; ' + done + ' done</div>';
+        html += '</div></div>';
+        container.innerHTML += html;
+      });
+
+      if (allUsers.length === 0) {
+        container.innerHTML = '<p class="text-muted">No users found.</p>';
+      }
+    }
+
+    // ---- logout ----
+    document.getElementById("logout-btn").addEventListener("click", function() {
+      logout();
+    });
+
+    // ---- mobile burger ----
+    document.querySelector(".navbar-burger").addEventListener("click", function() {
+      this.classList.toggle("is-active");
+      document.getElementById("mainNav").classList.toggle("is-active");
+    });
+  </script>
+
+>>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
 </body>
 </html>
