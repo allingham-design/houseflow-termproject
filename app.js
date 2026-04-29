@@ -18,8 +18,8 @@ async function go() {
   // 2. LOGIN AS ROOMMATE USER (NOT ADMIN)
   await page.waitForSelector("#login-email");
 
-  await page.type("#login-email", "roommate1@test.com");
-  await page.type("#login-password", "password123");
+  await page.type("#login-email", "dannynguyen996@gmail.com");
+  await page.type("#login-password", "password");
 
   await page.click("#login-btn");
 
