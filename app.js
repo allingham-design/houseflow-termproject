@@ -9,7 +9,7 @@ async function go() {
   const page = await browser.newPage();
 
   // 1. Go to login page
-  await page.goto("http://127.0.0.1:5500/index.html");
+  await page.goto("http://127.0.0.1:5501/index.html");
 
   // 2. Login
   await page.waitForSelector("#login-email");
@@ -23,7 +23,7 @@ async function go() {
   await page.waitForTimeout(2000);
 
   // 3. Go to chores page
-  await page.goto("http://localhost:5500/chores.html");
+  await page.goto("http://127.0.0.1:5501/chores.html");
 
   // wait for page to load
   await page.waitForSelector("#chore-title");

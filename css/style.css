@@ -6,26 +6,26 @@
 
 /* ---------- CSS Variables (Design Tokens) ---------- */
 :root {
-  --primary: #9333EA;
-  --primary-light: #A855F7;
-  --primary-dark: #7E22CE;
-  --on-primary: #FFFFFF;
-  --secondary: #A855F7;
-  --accent: #EC4899;
-  --accent-light: #F472B6;
-  --on-accent: #FFFFFF;
-  --background: #FDF4FF;
-  --foreground: #3B0764;
-  --card: #FFFFFF;
-  --card-foreground: #3B0764;
-  --muted: #F3E8FF;
-  --muted-foreground: #64748B;
-  --border: #E9D5FF;
-  --destructive: #DC2626;
-  --on-destructive: #FFFFFF;
-  --ring: #9333EA;
+  --primary: #9333ea;
+  --primary-light: #a855f7;
+  --primary-dark: #7e22ce;
+  --on-primary: #ffffff;
+  --secondary: #a855f7;
+  --accent: #ec4899;
+  --accent-light: #f472b6;
+  --on-accent: #ffffff;
+  --background: #fdf4ff;
+  --foreground: #3b0764;
+  --card: #ffffff;
+  --card-foreground: #3b0764;
+  --muted: #f3e8ff;
+  --muted-foreground: #64748b;
+  --border: #e9d5ff;
+  --destructive: #dc2626;
+  --on-destructive: #ffffff;
+  --ring: #9333ea;
   --success: #059669;
-  --warning: #D97706;
+  --warning: #d97706;
   --radius: 8px;
   --transition: 200ms ease;
 }
@@ -36,16 +36,22 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   background-color: var(--background);
   color: var(--foreground);
   min-height: 100vh;
 }
 
 /* ---------- Typography ---------- */
-h1, h2, h3, h4, h5, h6,
-.title, .subtitle {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.subtitle {
+  font-family: "Plus Jakarta Sans", sans-serif;
   color: var(--foreground);
 }
 
@@ -88,7 +94,7 @@ h1, h2, h3, h4, h5, h6,
 .button {
   border-radius: var(--radius);
   font-weight: 600;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   transition: all var(--transition);
   cursor: pointer;
   border: none;
@@ -122,12 +128,14 @@ h1, h2, h3, h4, h5, h6,
   border: none;
 }
 
-<<<<<<< HEAD
-=======
 /* ---------- Hero (Login Page) ---------- */
 .hero-login {
   background-color: var(--primary);
-  background-image: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background-image: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
 }
 
 .hero-login .title,
@@ -166,7 +174,6 @@ h1, h2, h3, h4, h5, h6,
   border-bottom-color: var(--primary-light);
 }
 
->>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
 /* ---------- Cards ---------- */
 .card {
   background-color: var(--card);
@@ -218,13 +225,11 @@ h1, h2, h3, h4, h5, h6,
   color: var(--accent);
 }
 
-<<<<<<< HEAD
-=======
 /* ---------- Table ---------- */
 .table {
   background-color: var(--card);
   border-radius: var(--radius);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .table th {
@@ -250,11 +255,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .btn-danger:hover {
-  background-color: #B91C1C;
+  background-color: #b91c1c;
   color: var(--on-destructive);
 }
 
->>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
 /* ---------- Section Headers ---------- */
 .section-header {
   display: flex;
@@ -270,19 +274,25 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ---------- Form Elements ---------- */
-.input, .select select, .textarea {
+.input,
+.select select,
+.textarea {
   border: 2px solid var(--border);
   border-radius: var(--radius);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   color: var(--foreground);
   transition: border-color var(--transition);
 }
 
-.input:hover, .select select:hover, .textarea:hover {
+.input:hover,
+.select select:hover,
+.textarea:hover {
   border-color: var(--border);
 }
 
-.input:focus, .select select:focus, .textarea:focus {
+.input:focus,
+.select select:focus,
+.textarea:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.15);
 }
@@ -342,18 +352,18 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .tag-status.pending {
-  background-color: #FEF3C7;
-  color: #92400E;
+  background-color: #fef3c7;
+  color: #92400e;
 }
 
 .tag-status.completed {
-  background-color: #D1FAE5;
-  color: #065F46;
+  background-color: #d1fae5;
+  color: #065f46;
 }
 
 .tag-status.overdue {
-  background-color: #FEE2E2;
-  color: #991B1B;
+  background-color: #fee2e2;
+  color: #991b1b;
 }
 
 /* ---------- Avatar ---------- */
@@ -370,20 +380,33 @@ h1, h2, h3, h4, h5, h6,
   flex-shrink: 0;
 }
 
-.avatar.danny { background-color: var(--primary); }
-<<<<<<< HEAD
-.avatar.alex { background-color: var(--accent); }
-.avatar.jordan { background-color: #7C3AED; }
-=======
-.avatar.brittney { background-color: var(--accent); }
-.avatar.richie { background-color: #7C3AED; }
-.avatar.default { background-color: var(--primary); }
-.avatar.color-1 { background-color: var(--primary); }
-.avatar.color-2 { background-color: var(--accent); }
-.avatar.color-3 { background-color: #7C3AED; }
-.avatar.color-4 { background-color: #0891B2; }
-.avatar.color-5 { background-color: #059669; }
->>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
+.avatar.danny {
+  background-color: var(--primary);
+}
+.avatar.brittney {
+  background-color: var(--accent);
+}
+.avatar.richie {
+  background-color: #7c3aed;
+}
+.avatar.default {
+  background-color: var(--primary);
+}
+.avatar.color-1 {
+  background-color: var(--primary);
+}
+.avatar.color-2 {
+  background-color: var(--accent);
+}
+.avatar.color-3 {
+  background-color: #7c3aed;
+}
+.avatar.color-4 {
+  background-color: #0891b2;
+}
+.avatar.color-5 {
+  background-color: #059669;
+}
 
 /* ---------- Progress Bar ---------- */
 .progress-bar {
@@ -413,8 +436,6 @@ h1, h2, h3, h4, h5, h6,
   border-bottom: none;
 }
 
-<<<<<<< HEAD
-=======
 /* ---------- Modal ---------- */
 .modal-card {
   border-radius: 12px;
@@ -444,7 +465,6 @@ h1, h2, h3, h4, h5, h6,
   padding: 1rem 1.5rem;
 }
 
->>>>>>> 701aa9c3f0968112bd508097054d4165c1d20fbe
 /* ---------- Footer ---------- */
 .footer {
   background-color: var(--card);
