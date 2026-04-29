@@ -92,26 +92,3 @@ async function getPaymentHistory() {
   return history;
 }
 
-// seed some sample history data for demo purposes
-async function seedExpenseHistory(users) {
-  // create a few months of history with all users
-  var months = ["2026-03", "2026-02", "2026-01"];
-  for (var i = 0; i < months.length; i++) {
-    var doc = await db.collection("expenses").doc(months[i]).get();
-    if (!doc.exists) {
-      var splits = users.map(function(u) {
-        return {
-          userId: u.id,
-          amount: 600,
-          paid: true,
-          paidDate: months[i] + "-0" + (i + 2)
-        };
-      });
-      await db.collection("expenses").doc(months[i]).set({
-        rentTotal: 1800,
-        month: months[i],
-        splits: splits
-      });
-    }
-  }
-}

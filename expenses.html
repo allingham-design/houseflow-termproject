@@ -208,9 +208,6 @@
       allUsers = await getAllUsers();
       expenseData = await getExpenses();
 
-      // seed sample history if this is a fresh setup
-      await seedExpenseHistory(allUsers);
-
       renderStats();
       renderSplitsForm();
       renderPaymentStatus();
