@@ -78,11 +78,19 @@ var defaultChores = [
 ];
 
 // get all chores from firestore
+// also checks if any pending chores are past due and marks them overdue
 async function getAllChores() {
   var snapshot = await db.collection("chores").get();
+  var today = new Date().toISOString().split("T")[0];
   var chores = [];
   snapshot.forEach(function(doc) {
-    chores.push({ id: doc.id, ...doc.data() });
+    var chore = { id: doc.id, ...doc.data() };
+    // auto-mark overdue if due date has passed and not completed
+    if (chore.status === "pending" && chore.dueDate && chore.dueDate < today) {
+      chore.status = "overdue";
+      db.collection("chores").doc(chore.id).update({ status: "overdue" });
+    }
+    chores.push(chore);
   });
   return chores;
 }
