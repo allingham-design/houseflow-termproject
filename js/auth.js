@@ -14,7 +14,7 @@ function login(email, password) {
         alert("User profile not found.");
         return { success: false };
       }
-
+      
       const userData = userDoc.data();
 
       // store in session for quick access on other pages
