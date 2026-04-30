@@ -11,7 +11,7 @@ async function go() {
   const page = await browser.newPage();
 
   // 1. Go to login page
-  await page.goto("http://127.0.0.1:5501/index.html", {
+  await page.goto("https://termproject-is424.web.app/index.html", {
     waitUntil: "networkidle2",
   });
 
@@ -35,7 +35,7 @@ async function go() {
   console.log("Logged in role:", role);
 
   // 3. GO TO CHORES PAGE
-  await page.goto("http://127.0.0.1:5501/chores.html", {
+  await page.goto("https://termproject-is424.web.app/chores.html", {
     waitUntil: "networkidle2",
   });
 
