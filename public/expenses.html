@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expenses - HouseFlow</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="dashboard.html"> HouseFlow </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="mainNav"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="mainNav" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="dashboard.html">Dashboard</a>
+            <a class="navbar-item" href="chores.html">Manage Chores</a>
+            <a class="navbar-item is-active" href="expenses.html">Expenses</a>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <span
+                id="nav-avatar"
+                class="avatar"
+                style="width: 28px; height: 28px; font-size: 0.7rem"
+              ></span>
+              <span
+                id="nav-name"
+                style="font-weight: 600; margin-left: 0.25rem"
+              ></span>
+              <span
+                id="nav-role"
+                class="tag is-light ml-2"
+                style="font-size: 0.7rem; text-transform: uppercase"
+              ></span>
+            </div>
+            <div class="navbar-item">
+              <button id="logout-btn" class="button btn-outline is-small">
+                Log Out
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section" style="padding-top: 5rem">
+      <div class="container">
+        <div class="mb-3">
+          <h1 class="title is-3">Rent & Expenses</h1>
+          <p class="text-muted">
+            Manage monthly rent splits and track payments.
+          </p>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="columns mb-3">
+          <div class="column is-4">
+            <div class="stat-card">
+              <div id="stat-month" class="stat-number">--</div>
+              <div class="stat-label">Current Month</div>
+            </div>
+          </div>
+          <div class="column is-4">
+            <div class="stat-card success">
+              <div id="stat-collected" class="stat-number">$0</div>
+              <div class="stat-label">Collected</div>
+            </div>
+          </div>
+          <div class="column is-4">
+            <div class="stat-card warning">
+              <div id="stat-outstanding" class="stat-number">$0</div>
+              <div class="stat-label">Outstanding</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <!-- Left: Rent Config + Payment Status -->
+          <div class="column is-7">
+            <!-- Rent Configuration (admin only) -->
+            <div class="card mb-3" id="rent-config-card">
+              <div class="card-content">
+                <h3
+                  class="section-title"
+                  style="font-size: 1.1rem; margin-bottom: 1rem"
+                >
+                  Rent Configuration
+                </h3>
+
+                <div class="field">
+                  <label class="label" for="rent-total"
+                    >Total Monthly Rent</label
+                  >
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="number"
+                      id="rent-total"
+                      value="0"
+                      min="0"
+                      step="50"
+                    />
+                  </div>
+                </div>
+
+                <label class="label">Roommate Splits</label>
+                <div id="splits-container"></div>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 0.75rem;
+                  "
+                >
+                  <span
+                    id="split-total"
+                    class="text-muted"
+                    style="font-size: 0.85rem"
+                  ></span>
+                  <button
+                    id="save-rent-btn"
+                    class="button btn-primary is-small"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Status -->
+            <div class="card">
+              <div class="card-content">
+                <h3
+                  class="section-title"
+                  style="font-size: 1.1rem; margin-bottom: 1rem"
+                >
+                  Payment Status
+                </h3>
+                <div id="payment-status"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Venmo QR + History -->
+          <div class="column is-5">
+            <!-- Venmo QR -->
+            <div class="card mb-3">
+              <div class="card-content has-text-centered">
+                <h3 class="section-title mb-2" style="font-size: 1.1rem">
+                  Pay via Venmo
+                </h3>
+                <p class="text-muted mb-2" style="font-size: 0.85rem">
+                  Scan to send your rent payment
+                </p>
+                <img
+                  src="images/dannyvenmo.png"
+                  alt="Venmo QR Code"
+                  style="max-width: 200px; border-radius: var(--radius)"
+                />
+              </div>
+            </div>
+
+            <!-- Payment History -->
+            <div class="card">
+              <div class="card-content">
+                <h3 class="section-title mb-2" style="font-size: 1.1rem">
+                  Payment History
+                </h3>
+                <div id="payment-history"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container has-text-centered">
+        <p>HouseFlow &copy; 2026 &mdash; IS424 Group 6 Project</p>
+      </div>
+    </footer>
+
+    <!-- Firebase v8 -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCNKv2brlATYTxfzrDACA0ul2qSa8TOLqs",
+        authDomain: "termproject-is424.firebaseapp.com",
+        projectId: "termproject-is424",
+        storageBucket: "termproject-is424.firebasestorage.app",
+        messagingSenderId: "360207749118",
+        appId: "1:360207749118:web:3e6a6ad265ab02c9d5baaf",
+        measurementId: "G-YBS43Y0VEM",
+      };
+      firebase.initializeApp(firebaseConfig);
+      let auth = firebase.auth();
+      let db = firebase.firestore();
+    </script>
+
+    <script src="js/auth.js"></script>
+    <script src="js/chores.js"></script>
+    <script src="js/expenses.js"></script>
+
+    <script>
+      // ---- state ----
+      var currentUser = null;
+      var allUsers = [];
+      var expenseData = null;
+
+      // ---- auth check ----
+      auth.onAuthStateChanged(async function (user) {
+        if (!user) {
+          window.location.href = "index.html";
+          return;
+        }
+
+        var data = sessionStorage.getItem("houseflow_user");
+        if (!data) {
+          window.location.href = "index.html";
+          return;
+        }
+        currentUser = JSON.parse(data);
+
+        // navbar
+        document.getElementById("nav-avatar").textContent =
+          currentUser.avatar || "";
+        document.getElementById("nav-avatar").className =
+          "avatar " + (currentUser.color || "");
+        document.getElementById("nav-name").textContent = currentUser.name;
+        document.getElementById("nav-role").textContent = currentUser.role;
+
+        // hide rent config for non-admins
+        if (currentUser.role !== "admin") {
+          document.getElementById("rent-config-card").style.display = "none";
+        }
+
+        await loadExpensesPage();
+      });
+
+      // ---- load page ----
+      async function loadExpensesPage() {
+        allUsers = await getAllUsers();
+        expenseData = await getExpenses();
+
+        renderStats();
+        renderSplitsForm();
+        renderPaymentStatus();
+        await renderPaymentHistory();
+      }
+
+      // ---- stats ----
+      function renderStats() {
+        document.getElementById("stat-month").textContent = formatMonthKey(
+          expenseData.month,
+        );
+
+        var collected = 0;
+        var outstanding = 0;
+        expenseData.splits.forEach(function (s) {
+          if (s.paid) {
+            collected += s.amount;
+          } else {
+            outstanding += s.amount;
+          }
+        });
+
+        document.getElementById("stat-collected").textContent = "$" + collected;
+        document.getElementById("stat-outstanding").textContent =
+          "$" + outstanding;
+      }
+
+      // ---- splits form (admin only) ----
+      function renderSplitsForm() {
+        var container = document.getElementById("splits-container");
+        container.innerHTML = "";
+
+        document.getElementById("rent-total").value =
+          expenseData.rentTotal || 0;
+
+        // show split total
+        var splitTotal = 0;
+        expenseData.splits.forEach(function (s) {
+          splitTotal += s.amount;
+        });
+        document.getElementById("split-total").textContent =
+          "Total splits: $" + splitTotal;
+
+        expenseData.splits.forEach(function (split) {
+          var user = allUsers.find(function (u) {
+            return u.id === split.userId;
+          });
+          if (!user) return;
+
+          var row = document.createElement("div");
+          row.className = "field has-addons mb-1";
+          row.style.cssText = "align-items: center;";
+
+          row.innerHTML =
+            '<div style="display: flex; align-items: center; gap: 0.5rem; min-width: 140px;">' +
+            '<span class="avatar ' +
+            (user.color || "") +
+            '" style="width:24px;height:24px;font-size:0.65rem;">' +
+            (user.avatar || "") +
+            "</span>" +
+            '<span style="font-weight: 500; font-size: 0.9rem;">' +
+            user.name +
+            "</span>" +
+            "</div>" +
+            '<div class="control" style="margin-left: auto;">' +
+            '<input class="input is-small split-amount" type="number" value="' +
+            split.amount +
+            '" min="0" step="50" data-userid="' +
+            split.userId +
+            '" style="width: 120px; text-align: right;">' +
+            "</div>";
+
+          container.appendChild(row);
+        });
+
+        // update total when split amounts change
+        container.addEventListener("input", function () {
+          var sum = 0;
+          document.querySelectorAll(".split-amount").forEach(function (inp) {
+            sum += parseInt(inp.value) || 0;
+          });
+          document.getElementById("split-total").textContent =
+            "Total splits: $" + sum;
+        });
+      }
+
+      // save rent config
+      document
+        .getElementById("save-rent-btn")
+        .addEventListener("click", async function () {
+          var rentTotal =
+            parseInt(document.getElementById("rent-total").value) || 0;
+          var splits = [];
+          document.querySelectorAll(".split-amount").forEach(function (inp) {
+            var existing = expenseData.splits.find(function (s) {
+              return s.userId === inp.getAttribute("data-userid");
+            });
+            splits.push({
+              userId: inp.getAttribute("data-userid"),
+              amount: parseInt(inp.value) || 0,
+              paid: existing ? existing.paid : false,
+              paidDate: existing ? existing.paidDate : null,
+            });
+          });
+          await updateRentConfig(rentTotal, splits);
+          expenseData = await getExpenses();
+          renderStats();
+          alert("Rent configuration saved.");
+        });
+
+      // ---- payment status ----
+      function renderPaymentStatus() {
+        var container = document.getElementById("payment-status");
+        container.innerHTML = "";
+
+        if (expenseData.splits.length === 0) {
+          container.innerHTML =
+            '<p class="text-muted">No roommate splits configured.</p>';
+          return;
+        }
+
+        expenseData.splits.forEach(function (split) {
+          var user = allUsers.find(function (u) {
+            return u.id === split.userId;
+          });
+          if (!user) return;
+          var isAdmin = currentUser.role === "admin";
+
+          var card = document.createElement("div");
+          card.className = "chore-card mb-2";
+          card.style.cssText =
+            "display: flex; align-items: center; justify-content: space-between;";
+
+          var leftHtml =
+            '<div style="display: flex; align-items: center; gap: 0.75rem;">' +
+            '<span class="avatar ' +
+            (user.color || "") +
+            '">' +
+            (user.avatar || "") +
+            "</span>" +
+            "<div>" +
+            '<div style="font-weight: 600;">' +
+            user.name +
+            "</div>" +
+            '<div class="text-muted" style="font-size: 0.85rem;">$' +
+            split.amount +
+            "</div>" +
+            "</div>" +
+            "</div>";
+
+          var rightHtml = "";
+          if (split.paid) {
+            var dateStr = split.paidDate || "";
+            if (dateStr) {
+              var parts = dateStr.split("-");
+              var months = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ];
+              dateStr =
+                months[parseInt(parts[1]) - 1] + " " + parseInt(parts[2]);
+            }
+            rightHtml =
+              '<div style="display: flex; align-items: center; gap: 0.75rem;">';
+            rightHtml += '<div style="text-align: right;">';
+            rightHtml += '<span class="tag-status completed">PAID</span>';
+            if (dateStr)
+              rightHtml +=
+                '<div class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem;">' +
+                dateStr +
+                "</div>";
+            rightHtml += "</div>";
+            if (isAdmin) {
+              rightHtml +=
+                '<button class="button is-small unpaid-btn" data-userid="' +
+                split.userId +
+                '" title="Mark unpaid">';
+              rightHtml +=
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>';
+              rightHtml += "</button>";
+            }
+            rightHtml += "</div>";
+          } else {
+            rightHtml =
+              '<div style="display: flex; align-items: center; gap: 0.75rem;">';
+            rightHtml += '<span class="tag-status pending">UNPAID</span>';
+            if (isAdmin) {
+              rightHtml +=
+                '<button class="button btn-success is-small paid-btn" data-userid="' +
+                split.userId +
+                '">Confirm Paid</button>';
+            }
+            rightHtml += "</div>";
+          }
+
+          card.innerHTML = leftHtml + rightHtml;
+          container.appendChild(card);
+        });
+
+        // attach button handlers
+        document.querySelectorAll(".paid-btn").forEach(function (btn) {
+          btn.addEventListener("click", async function () {
+            await markAsPaid(this.getAttribute("data-userid"));
+            expenseData = await getExpenses();
+            renderStats();
+            renderPaymentStatus();
+          });
+        });
+        document.querySelectorAll(".unpaid-btn").forEach(function (btn) {
+          btn.addEventListener("click", async function () {
+            await markAsUnpaid(this.getAttribute("data-userid"));
+            expenseData = await getExpenses();
+            renderStats();
+            renderPaymentStatus();
+          });
+        });
+      }
+
+      // ---- payment history ----
+      async function renderPaymentHistory() {
+        var container = document.getElementById("payment-history");
+        container.innerHTML = "";
+
+        var history = await getPaymentHistory();
+
+        if (history.length === 0) {
+          container.innerHTML =
+            '<p class="text-muted" style="font-size: 0.85rem;">No previous months found.</p>';
+          return;
+        }
+
+        history.forEach(function (record, index) {
+          var allPaid = record.splits.every(function (s) {
+            return s.paid;
+          });
+          var borderStyle =
+            index < history.length - 1
+              ? "border-bottom: 1px solid var(--border);"
+              : "";
+
+          var html = '<div style="padding: 0.75rem 0; ' + borderStyle + '">';
+          html +=
+            '<div style="display: flex; justify-content: space-between; align-items: center;">';
+          html +=
+            '<span style="font-weight: 600; font-size: 0.9rem;">' +
+            formatMonthKey(record.month) +
+            "</span>";
+          html +=
+            '<span class="tag-status ' +
+            (allPaid ? "completed" : "pending") +
+            '">' +
+            (allPaid ? "ALL PAID" : "PARTIAL") +
+            "</span>";
+          html += "</div>";
+          html += '<div style="margin-top: 0.35rem;">';
+
+          record.splits.forEach(function (split) {
+            var user = allUsers.find(function (u) {
+              return u.id === split.userId;
+            });
+            var name = user ? user.name : "Unknown";
+            var icon = split.paid
+              ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>'
+              : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--destructive)" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+
+            html +=
+              '<div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--muted-foreground); margin-top: 0.2rem;">';
+            html += icon;
+            html += "<span>" + name + " &mdash; $" + split.amount + "</span>";
+            html += "</div>";
+          });
+
+          html += "</div></div>";
+          container.innerHTML += html;
+        });
+      }
+
+      // ---- logout ----
+      document
+        .getElementById("logout-btn")
+        .addEventListener("click", function () {
+          logout();
+        });
+
+      // ---- mobile burger ----
+      document
+        .querySelector(".navbar-burger")
+        .addEventListener("click", function () {
+          this.classList.toggle("is-active");
+          document.getElementById("mainNav").classList.toggle("is-active");
+        });
+    </script>
+  </body>
+</html>
